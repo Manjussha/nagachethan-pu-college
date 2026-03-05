@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="styles.css?v=20260302">
+    <link rel="stylesheet" href="styles.css?v=20260307">
 
     <!-- Contact Page Specific Styles -->
     <style>
@@ -558,6 +558,22 @@
         }
 
         /* ============================
+           OVERFLOW & WRAP GUARDS
+        ============================ */
+        html {
+            overflow-x: hidden;
+        }
+
+        *, *::before, *::after {
+            max-width: 100%;
+        }
+
+        .contact-info-card__content a {
+            word-break: break-all;
+            overflow-wrap: break-word;
+        }
+
+        /* ============================
            RESPONSIVE STYLES
         ============================ */
         @media (max-width: 992px) {
@@ -658,6 +674,40 @@
                 min-width: 40px;
                 font-size: 0.95rem;
             }
+
+            .contact-section .section__title,
+            .directions-section .section__title,
+            .social-section .section__title {
+                font-size: 1.5rem;
+            }
+
+            .contact-cta__title {
+                font-size: 1.3rem;
+            }
+
+            .contact-form__submit {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .directions-grid {
+                gap: 16px;
+            }
+
+            .direction-card {
+                padding: 18px 16px;
+            }
+
+            .social-icons {
+                gap: 16px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .page-hero__title { font-size: 1.4rem; }
+            .contact-info-card { padding: 14px 12px; gap: 10px; }
+            .contact-form-wrap { padding: 18px 12px; }
+            .map-section iframe { height: 240px; }
         }
     </style>
 
@@ -704,7 +754,7 @@
     ============================================= -->
     <section class="map-section" id="mapSection">
         <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.0017078419864!2d77.59771927507865!3d13.099078087228119!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1955d0b76287%3A0x8d0419a80c2d89ea!2sNagachethana%20PU%20College!5e0!3m2!1sen!2sin!4v1772431166107!5m2!1sen!2sin"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3197.855572078301!2d77.59771927507865!3d13.099078087228119!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1955d0b76287%3A0x8d0419a80c2d89ea!2sNagachethana%20PU%20College!5e1!3m2!1sen!2sin!4v1772704318886!5m2!1sen!2sin"
             width="100%"
             height="450"
             style="border:0;"
@@ -747,7 +797,9 @@
                         </div>
                         <div class="contact-info-card__content">
                             <h4>Phone Number</h4>
-                            <a href="tel:09739085747">097390 85747</a>
+                            <a href="tel:+919739085747">097390 85747</a><br>
+                            <a href="tel:+919901302315">990130 2315</a><br>
+                            <a href="tel:+917892671800">789267 1800</a>
                         </div>
                     </div>
 
@@ -791,7 +843,7 @@
                     <h3 class="contact-form-wrap__title">Send Us a Message</h3>
                     <p class="contact-form-wrap__subtitle">Fill out the form below and we'll get back to you as soon as possible.</p>
 
-                    <form class="contact-form" id="contactForm" action="#" method="POST">
+                    <form class="contact-form" id="contactForm" action="https://formspree.io/f/xzdjprpg" method="POST">
                         <!-- Full Name -->
                         <div class="form-group">
                             <label for="fullName">Full Name <span class="required">*</span></label>
@@ -910,13 +962,13 @@
             </div>
 
             <div class="social-icons">
-                <a href="#" class="social-icon-link social-icon-link--facebook" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.facebook.com/p/Nagachethana-PU-College-100069749096197/" class="social-icon-link social-icon-link--facebook" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-facebook-f"></i>
                 </a>
-                <a href="#" class="social-icon-link social-icon-link--instagram" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.instagram.com/nagachethanapucollege/" class="social-icon-link social-icon-link--instagram" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-instagram"></i>
                 </a>
-                <a href="#" class="social-icon-link social-icon-link--youtube" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.youtube.com/@nagachethanapucollege4324" class="social-icon-link social-icon-link--youtube" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
                     <i class="fab fa-youtube"></i>
                 </a>
             </div>

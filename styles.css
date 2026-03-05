@@ -104,6 +104,10 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   font-family: var(--font-body);
   font-weight: 400;
@@ -379,6 +383,7 @@ p:last-child {
   z-index: 1001;
   transition: all var(--transition-base);
   font-size: 0.88rem;
+  overflow: hidden;
 }
 
 .announcement-bar.hidden {
@@ -399,7 +404,9 @@ p:last-child {
   display: flex;
   align-items: center;
   gap: 8px;
-  white-space: nowrap;
+  white-space: normal;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .announcement-bar__text i {
@@ -1609,6 +1616,7 @@ p:last-child {
   background-color: var(--color-charcoal);
   color: rgba(255, 255, 255, 0.8);
   padding-top: 60px;
+  overflow: hidden;
 }
 
 .footer__grid {
@@ -1616,6 +1624,12 @@ p:last-child {
   grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
   gap: 40px;
   padding-bottom: 40px;
+}
+
+.footer__grid > * {
+  min-width: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 /* Footer brand column */
@@ -1709,6 +1723,18 @@ p:last-child {
   gap: 12px;
   font-size: 0.9rem;
   line-height: 1.6;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  min-width: 0;
+}
+
+.footer__contact li span {
+  display: block;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  min-width: 0;
+  flex: 1;
+  max-width: 100%;
 }
 
 .footer__contact li i {
@@ -1720,6 +1746,8 @@ p:last-child {
 .footer__contact a {
   color: rgba(255, 255, 255, 0.7);
   transition: color var(--transition-fast);
+  word-break: break-all;
+  overflow-wrap: break-word;
 }
 
 .footer__contact a:hover {
@@ -3529,7 +3557,8 @@ p:last-child {
   .navbar__menu {
     position: fixed;
     top: 0;
-    right: -100%;
+    right: 0;
+    transform: translateX(100%);
     width: 280px;
     height: 100vh;
     background-color: var(--color-white);
@@ -3538,13 +3567,14 @@ p:last-child {
     padding: 90px 30px 30px;
     gap: 4px;
     box-shadow: var(--shadow-xl);
-    transition: right var(--transition-base);
+    transition: transform var(--transition-base);
     z-index: 1001;
     overflow-y: auto;
   }
 
   .navbar__menu.open {
     right: 0;
+    transform: translateX(0);
   }
 
   .navbar__link {
@@ -3580,12 +3610,13 @@ p:last-child {
     display: block;
   }
 
-  /* Mobile overlay */
+  /* Mobile overlay — must be BELOW header stacking context (z-index:1000)
+     so the nav menu links inside the header remain clickable */
   .navbar__overlay {
     position: fixed;
     inset: 0;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
+    z-index: 999;
     opacity: 0;
     visibility: hidden;
     transition: all var(--transition-base);
@@ -3603,6 +3634,7 @@ p:last-child {
 
   .hero__title {
     font-size: 2.2rem;
+    text-align: center;
   }
 
   .hero__tagline {
@@ -3610,7 +3642,12 @@ p:last-child {
   }
 
   .hero__stats {
-    gap: 20px;
+    gap: 16px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 280px;
+    margin: 0 auto;
+    padding-top: 24px;
   }
 
   .hero__stat-number,
@@ -3624,6 +3661,14 @@ p:last-child {
     max-width: 280px;
     margin-inline: auto;
     margin-bottom: 30px;
+  }
+
+  .hero__content {
+    text-align: center;
+  }
+
+  .hero__established {
+    text-align: center;
   }
 
   /* Section titles */
@@ -3684,7 +3729,14 @@ p:last-child {
   /* Footer */
   .footer__grid {
     grid-template-columns: 1fr;
-    gap: 35px;
+    gap: 32px;
+  }
+
+  .footer__col {
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
   }
 
   .footer__heading::after {
@@ -3692,17 +3744,44 @@ p:last-child {
     transform: translateX(-50%);
   }
 
-  .footer__col {
-    text-align: center;
+  .footer__logo {
+    justify-content: center;
+  }
+
+  .footer__brand p {
+    max-width: 320px;
+    margin-inline: auto;
   }
 
   .footer__links {
-    align-items: center;
+    align-items: flex-start;
+    max-width: 260px;
+    margin-inline: auto;
+    width: 100%;
+  }
+
+  .footer__link {
+    justify-content: flex-start;
+  }
+
+  .footer__contact {
+    align-items: flex-start;
+    max-width: 280px;
+    margin-inline: auto;
+    width: 100%;
   }
 
   .footer__contact li {
-    justify-content: center;
+    width: 100%;
     text-align: left;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .footer__contact li span,
+  .footer__contact li a {
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
 
   .footer__social {
@@ -3712,6 +3791,19 @@ p:last-child {
   .footer__copyright {
     flex-direction: column;
     text-align: center;
+  }
+
+  .footer__copyright .container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+  }
+
+  .footer__bottom-links {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
   }
 
   /* Vision Mission */
@@ -3947,6 +4039,64 @@ p:last-child {
 /* ============================================================
    SECTION 23: PRINT STYLES
    ============================================================ */
+
+/* ===== Extra small screens (max-width 360px) ===== */
+@media (max-width: 360px) {
+  .container {
+    padding: 0 12px;
+  }
+  .hero__title {
+    font-size: 1.5rem;
+    letter-spacing: 0;
+  }
+  .hero__container {
+    padding: 40px 12px;
+  }
+  .hero__stat-number,
+  .hero__stat-suffix {
+    font-size: 1.3rem;
+  }
+  .hero__stat-label {
+    font-size: 0.72rem;
+  }
+  .section__title {
+    font-size: 1.3rem;
+  }
+  .btn {
+    padding: 10px 18px;
+    font-size: 0.88rem;
+  }
+  .btn--lg {
+    padding: 11px 22px;
+    font-size: 0.9rem;
+  }
+  .footer__grid {
+    gap: 24px;
+  }
+  .announcement-bar__text {
+    font-size: 0.72rem;
+    white-space: normal;
+    padding: 0 28px;
+  }
+  .whatsapp-float {
+    bottom: 12px;
+    right: 58px;
+  }
+  .back-to-top {
+    bottom: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+  }
+  .navbar__logo-text .navbar__college-name {
+    font-size: 1rem;
+  }
+  .navbar__logo-text .navbar__college-subtitle,
+  .navbar__logo-text .navbar__college-code {
+    font-size: 0.65rem;
+  }
+}
+
 @media print {
   .header,
   .announcement-bar,

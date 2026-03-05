@@ -3,8 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Nagachethana PU College, Bengaluru</title>
-    <meta name="description" content="Learn about Nagachethana PU College, Bengaluru - Empowering Good Education since 2015. Discover our vision, mission, history, and leadership.">
+    <title>About Us | Nagachethana PU College Yelahanka Bengaluru – Since 2015</title>
+    <meta name="description" content="Learn about Nagachethana PU College, Yelahanka, Bengaluru – empowering students with quality education since 2015. Discover our vision, mission, and leadership. College Code: AN0928.">
+    <meta name="keywords" content="about Nagachethana PU College, PU college Yelahanka history, best PU college north Bangalore, PUC college since 2015, Nagachethana PUC vision mission, PU college leadership Yelahanka">
+    <!-- Canonical -->
+    <link rel="canonical" href="https://nagachethanapucollege.in/about.html">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Nagachethana PU College">
+    <meta property="og:title" content="About Us | Nagachethana PU College Yelahanka Bengaluru">
+    <meta property="og:description" content="Empowering students with quality PUC education since 2015 at Yelahanka, Bengaluru. Science & Commerce streams. College Code: AN0928.">
+    <meta property="og:url" content="https://nagachethanapucollege.in/about.html">
+    <meta property="og:image" content="https://nagachethanapucollege.in/logo.jpg">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="About Us | Nagachethana PU College Yelahanka Bengaluru">
+    <meta name="twitter:description" content="Empowering students with quality PUC education since 2015 at Yelahanka, Bengaluru. Science & Commerce streams.">
+    <meta name="twitter:image" content="https://nagachethanapucollege.in/logo.jpg">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,7 +30,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="styles.css?v=20260302">
+    <link rel="stylesheet" href="styles.css?v=20260307">
 
     <style>
         /* ===================== CONTAINER ===================== */
@@ -148,7 +163,7 @@
 
         .vm-grid {
             display: flex;
-            flex-wrap: nowrap;
+            flex-wrap: wrap;
             justify-content: center;
             align-items: stretch;
             gap: 40px;
@@ -536,11 +551,13 @@
 
             .vm-grid {
                 flex-wrap: wrap;
-                max-width: 500px;
+                max-width: 100%;
             }
             
             .vm-card {
+                width: 100%;
                 max-width: 100%;
+                box-sizing: border-box;
             }
 
             .timeline::before {
@@ -594,6 +611,12 @@
             .values-grid {
                 grid-template-columns: 1fr;
             }
+        }
+
+        @media (max-width: 360px) {
+            .page-hero h1 { font-size: 1.4rem; }
+            .section { padding: 40px 0; }
+            .vm-grid { gap: 16px; }
         }
     </style>
 

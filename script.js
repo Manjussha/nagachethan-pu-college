@@ -14,7 +14,8 @@ document.addEventListener('DOMContentLoaded', function () {
         var announcementBar = document.getElementById('announcementBar');
         var closeAnnouncementBtn = document.getElementById('closeAnnouncement');
 
-        if (closeAnnouncementBtn && announcementBar) {
+        if (closeAnnouncementBtn && announcementBar && !closeAnnouncementBtn.dataset.bound) {
+            closeAnnouncementBtn.dataset.bound = '1';
             closeAnnouncementBtn.addEventListener('click', function () {
                 announcementBar.classList.add('hidden');
                 sessionStorage.setItem('announcementClosed', 'true');
@@ -77,7 +78,8 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
 
-        if (hamburgerBtn) {
+        if (hamburgerBtn && !hamburgerBtn.dataset.bound) {
+            hamburgerBtn.dataset.bound = '1';
             hamburgerBtn.addEventListener('click', function () {
                 var isOpen = navMenu.classList.contains('open');
                 if (isOpen) {
@@ -90,6 +92,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         var navLinks = document.querySelectorAll('.navbar__link');
         navLinks.forEach(function (link) {
+            if (link.dataset.bound) return;
+            link.dataset.bound = '1';
             link.addEventListener('click', function () {
                 if (navMenu && navMenu.classList.contains('open')) {
                     closeMenu();
@@ -112,7 +116,8 @@ document.addEventListener('DOMContentLoaded', function () {
         window.addEventListener('scroll', handleBackToTopVisibility);
         handleBackToTopVisibility();
 
-        if (backToTopBtn) {
+        if (backToTopBtn && !backToTopBtn.dataset.bound) {
+            backToTopBtn.dataset.bound = '1';
             backToTopBtn.addEventListener('click', function () {
                 window.scrollTo({
                     top: 0,
@@ -428,7 +433,61 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
 
-            if (allValid) {
+            if (!allValid) {
+                var firstError = form.querySelector('.input-error');
+                if (firstError) {
+                    firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    firstError.focus();
+                }
+                return;
+            }
+
+            // If the form points to Formspree, submit via fetch
+            if (form.action && form.action.indexOf('formspree.io') !== -1) {
+                var submitBtn = form.querySelector('[type="submit"]');
+                if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
+
+                fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                })
+                .then(function (response) {
+                    if (submitBtn) { submitBtn.disabled = false; submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message'; }
+                    if (response.ok) {
+                        var successMsg = document.createElement('div');
+                        successMsg.classList.add('form-success-message');
+                        successMsg.style.cssText =
+                            'background:#E8F5E9;color:#1B5E20;padding:16px 20px;border-radius:8px;' +
+                            'margin-top:20px;font-weight:500;border:1px solid #A5D6A7;';
+                        successMsg.innerHTML =
+                            '<strong>Thank you!</strong> Your message has been sent. We will get back to you shortly.';
+                        form.appendChild(successMsg);
+                        form.reset();
+                        fields.forEach(function (f) { f.classList.remove('input-success'); });
+                        setTimeout(function () { successMsg.remove(); }, 5000);
+                    } else {
+                        var errMsg = document.createElement('div');
+                        errMsg.style.cssText =
+                            'background:#FFEBEE;color:#C62828;padding:16px 20px;border-radius:8px;' +
+                            'margin-top:20px;font-weight:500;border:1px solid #EF9A9A;';
+                        errMsg.innerHTML = '<strong>Oops!</strong> Something went wrong. Please try again or call us directly.';
+                        form.appendChild(errMsg);
+                        setTimeout(function () { errMsg.remove(); }, 5000);
+                    }
+                })
+                .catch(function () {
+                    if (submitBtn) { submitBtn.disabled = false; submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message'; }
+                    var errMsg = document.createElement('div');
+                    errMsg.style.cssText =
+                        'background:#FFEBEE;color:#C62828;padding:16px 20px;border-radius:8px;' +
+                        'margin-top:20px;font-weight:500;border:1px solid #EF9A9A;';
+                    errMsg.innerHTML = '<strong>Network error.</strong> Please check your connection and try again.';
+                    form.appendChild(errMsg);
+                    setTimeout(function () { errMsg.remove(); }, 5000);
+                });
+            } else {
+                // Fallback for forms without a real endpoint
                 var successMsg = document.createElement('div');
                 successMsg.classList.add('form-success-message');
                 successMsg.style.cssText =
@@ -437,21 +496,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 successMsg.innerHTML =
                     '<strong>Thank you!</strong> Your enquiry has been submitted successfully. We will get back to you shortly.';
                 form.appendChild(successMsg);
-
                 form.reset();
-                fields.forEach(function (f) {
-                    f.classList.remove('input-success');
-                });
-
-                setTimeout(function () {
-                    successMsg.remove();
-                }, 5000);
-            } else {
-                var firstError = form.querySelector('.input-error');
-                if (firstError) {
-                    firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    firstError.focus();
-                }
+                fields.forEach(function (f) { f.classList.remove('input-success'); });
+                setTimeout(function () { successMsg.remove(); }, 5000);
             }
         });
     });

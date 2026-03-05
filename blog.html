@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nagachethana PU College Blog - Latest news, updates, events and articles from our college in Yelahanka, Bengaluru.">
+    <meta name="keywords" content="Nagachethana PU College blog, college news Yelahanka, PU college updates Bengaluru">
+    <title>Blog | Nagachethana PU College Yelahanka Bengaluru</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css?v=20260307">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://nagachethanapucollege.in/blog.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Nagachethana PU College">
+    <meta property="og:title" content="Blog | Nagachethana PU College">
+    <meta property="og:description" content="Latest news, updates and events from Nagachethana PU College, Yelahanka, Bengaluru.">
+    <meta property="og:url" content="https://nagachethanapucollege.in/blog.html">
+    <meta property="og:image" content="https://nagachethanapucollege.in/logo.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Blog | Nagachethana PU College">
+    <meta name="twitter:description" content="Latest news, updates and events from Nagachethana PU College, Yelahanka, Bengaluru.">
+    <meta name="twitter:image" content="https://nagachethanapucollege.in/logo.jpg">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J5BYY5KNC9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-J5BYY5KNC9');
+    </script>
+
+    <style>
+        .blog-hero {
+            background: linear-gradient(135deg, var(--color-navy) 0%, #1a3a6b 100%);
+            padding: 80px 0 60px;
+            text-align: center;
+            color: #fff;
+        }
+        .blog-hero h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-family: var(--font-heading);
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .blog-hero p {
+            font-size: 1.1rem;
+            opacity: 0.85;
+        }
+
+        .blog-section {
+            padding: 60px 0 80px;
+            background: #f8f9fa;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 32px;
+            margin-top: 20px;
+        }
+
+        .blog-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .blog-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.14);
+        }
+
+        .blog-card__image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: linear-gradient(135deg, var(--color-navy) 0%, #1a3a6b 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 3.5rem;
+        }
+        .blog-card__image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .blog-card__body {
+            padding: 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card__date {
+            font-size: 0.82rem;
+            color: var(--color-gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+
+        .blog-card__title {
+            font-size: 1.15rem;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--color-navy);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .blog-card__excerpt {
+            font-size: 0.92rem;
+            color: #555;
+            line-height: 1.7;
+            flex: 1;
+            margin-bottom: 20px;
+        }
+
+        .blog-card__link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--color-navy);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .blog-card__link:hover {
+            color: var(--color-gold);
+        }
+
+        .blog-loading {
+            text-align: center;
+            padding: 60px 20px;
+            color: #777;
+        }
+        .blog-empty {
+            text-align: center;
+            padding: 60px 20px;
+            color: #777;
+        }
+        .blog-empty i {
+            font-size: 3rem;
+            color: #ccc;
+            display: block;
+            margin-bottom: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .blog-hero { padding: 60px 0 40px; }
+            .blog-grid { grid-template-columns: 1fr; gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <!-- BLOG HERO -->
+    <section class="blog-hero">
+        <div class="container">
+            <h1><i class="fas fa-newspaper" style="color:var(--color-gold);margin-right:12px;"></i>College Blog</h1>
+            <p>Latest news, updates and events from Nagachethana PU College</p>
+        </div>
+    </section>
+
+    <!-- BLOG POSTS -->
+    <section class="blog-section">
+        <div class="container">
+            <div id="blogGrid" class="blog-grid">
+                <div class="blog-loading" style="grid-column:1/-1;">
+                    <i class="fas fa-spinner fa-spin" style="font-size:2rem;color:#ccc;"></i>
+                    <p style="margin-top:12px;">Loading posts...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="components.js"></script>
+    <script>
+        fetch('/blog-api.php')
+            .then(function(r) { return r.json(); })
+            .then(function(posts) {
+                var grid = document.getElementById('blogGrid');
+                if (!posts || posts.length === 0) {
+                    grid.innerHTML = '<div class="blog-empty" style="grid-column:1/-1;"><i class="fas fa-pen-nib"></i><p>No blog posts yet. Check back soon!</p></div>';
+                    return;
+                }
+                grid.innerHTML = posts.map(function(post) {
+                    var imgHtml = post.image
+                        ? '<img src="' + post.image + '" alt="' + post.title + '" loading="lazy">'
+                        : '<i class="fas fa-graduation-cap"></i>';
+                    return '<div class="blog-card">' +
+                        '<div class="blog-card__image">' + imgHtml + '</div>' +
+                        '<div class="blog-card__body">' +
+                            '<div class="blog-card__date"><i class="fas fa-calendar-alt"></i> ' + post.date + '</div>' +
+                            '<h2 class="blog-card__title">' + post.title + '</h2>' +
+                            '<p class="blog-card__excerpt">' + post.excerpt + '</p>' +
+                            '<a href="' + post.link + '" class="blog-card__link" target="_blank" rel="noopener">Read More <i class="fas fa-arrow-right"></i></a>' +
+                        '</div>' +
+                    '</div>';
+                }).join('');
+            })
+            .catch(function() {
+                document.getElementById('blogGrid').innerHTML = '<div class="blog-empty" style="grid-column:1/-1;"><i class="fas fa-exclamation-circle"></i><p>Could not load posts. Please try again later.</p></div>';
+            });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
