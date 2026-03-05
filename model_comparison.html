@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Model Comparison Tool</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .input-section {
+            margin-bottom: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            resize: vertical;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        .results {
+            margin-top: 20px;
+        }
+        .model-result {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            background: #fafafa;
+        }
+        .model-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .model-name {
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .timing {
+            color: #666;
+            font-size: 14px;
+        }
+        .response {
+            background: white;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #eee;
+            white-space: pre-wrap;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .status {
+            padding: 5px 10px;
+            border-radius: 4px;
+            color: white;
+            font-size: 12px;
+        }
+        .status.loading { background: #ffc107; }
+        .status.success { background: #28a745; }
+        .status.error { background: #dc3545; }
+        .progress {
+            margin-top: 10px;
+            height: 20px;
+            background: #eee;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .progress-bar {
+            height: 100%;
+            background: #007bff;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AI Model Comparison Tool</h1>
+
+        <div class="input-section">
+            <label for="prompt">Test Prompt:</label><br>
+            <textarea id="prompt" placeholder="Enter your test prompt here...">Give me a summary of India's history.</textarea><br><br>
+            <button id="runTest">Run Comparison Test</button>
+        </div>
+
+        <div class="progress">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <div class="results" id="results"></div>
+    </div>
+
+    <script>
+        const API_BASE = 'https://api.kilo.ai/api/gateway/v1/chat/completions';
+        const API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbnYiOiJwcm9kdWN0aW9uIiwia2lsb1VzZXJJZCI6Im9hdXRoL2dvb2dsZToxMTEyOTU2MDcyMDA5MDYxMTgwNDUiLCJhcGlUb2tlblBlcHBlciI6bnVsbCwidmVyc2lvbiI6MywiaWF0IjoxNzcxNDEzOTQ4LCJleHAiOjE5MjkwOTM5NDh9.vemwKTaT1e3MuhW3f-aFT730Se9P3et3DQQeIQv97WY';
+
+        const models = [
+            'minimax/minimax-01',
+            'z-ai/glm-4.7',
+            'moonshot/kimi-k2.5',
+            'giga/potato',
+            'arcee/trinity-large-preview',
+            'x-ai/grok-code-fast-1:optimized'
+        ];
+
+        async function testModel(model, prompt) {
+            const startTime = Date.now();
+
+            try {
+                const response = await fetch(API_BASE, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${API_KEY}`
+                    },
+                    body: JSON.stringify({
+                        model: model,
+                        messages: [{ role: 'user', content: prompt }],
+                        temperature: 0.7,
+                        max_tokens: 1000
+                    })
+                });
+
+                const endTime = Date.now();
+                const duration = endTime - startTime;
+
+                if (!response.ok) {
+                    const errorText = await response.text().catch(() => 'Unknown error');
+                    throw new Error(`HTTP ${response.status}: ${response.statusText} - ${errorText}`);
+                }
+
+                const data = await response.json();
+                const content = data.choices?.[0]?.message?.content || 'No response content';
+
+                return {
+                    success: true,
+                    duration: duration,
+                    response: content,
+                    tokens: data.usage?.total_tokens || 0
+                };
+            } catch (error) {
+                const endTime = Date.now();
+                const duration = endTime - startTime;
+
+                let errorMessage = error.message;
+                if (error.message.includes('Failed to fetch')) {
+                    errorMessage = 'CORS/Network Error - Try running via local server (python -m http.server) or check API key';
+                }
+
+                return {
+                    success: false,
+                    duration: duration,
+                    error: errorMessage
+                };
+            }
+        }
+
+        function updateProgress(completed, total) {
+            const percentage = (completed / total) * 100;
+            document.getElementById('progressBar').style.width = percentage + '%';
+        }
+
+        function createResultElement(model, result) {
+            const div = document.createElement('div');
+            div.className = 'model-result';
+
+            const header = document.createElement('div');
+            header.className = 'model-header';
+
+            const name = document.createElement('div');
+            name.className = 'model-name';
+            name.textContent = model;
+
+            const timing = document.createElement('div');
+            timing.className = 'timing';
+            timing.textContent = result.success ?
+                `${result.duration}ms | ${result.tokens} tokens` :
+                `${result.duration}ms | Error`;
+
+            const status = document.createElement('span');
+            status.className = `status ${result.success ? 'success' : 'error'}`;
+            status.textContent = result.success ? 'SUCCESS' : 'ERROR';
+
+            header.appendChild(name);
+            header.appendChild(status);
+
+            const response = document.createElement('div');
+            response.className = 'response';
+            response.textContent = result.success ? result.response : result.error;
+
+            div.appendChild(header);
+            div.appendChild(timing);
+            div.appendChild(response);
+
+            return div;
+        }
+
+        async function runComparison() {
+            const prompt = document.getElementById('prompt').value.trim();
+            if (!prompt) {
+                alert('Please enter a prompt');
+                return;
+            }
+
+            const runButton = document.getElementById('runTest');
+            const resultsDiv = document.getElementById('results');
+
+            runButton.disabled = true;
+            runButton.textContent = 'Running Tests...';
+            resultsDiv.innerHTML = '';
+
+            const results = [];
+            let completed = 0;
+
+            for (const model of models) {
+                // Create loading placeholder
+                const loadingDiv = document.createElement('div');
+                loadingDiv.className = 'model-result';
+
+                const header = document.createElement('div');
+                header.className = 'model-header';
+
+                const name = document.createElement('div');
+                name.className = 'model-name';
+                name.textContent = model;
+
+                const status = document.createElement('span');
+                status.className = 'status loading';
+                status.textContent = 'TESTING';
+
+                header.appendChild(name);
+                header.appendChild(status);
+
+                const response = document.createElement('div');
+                response.className = 'response';
+                response.textContent = 'Testing in progress...';
+
+                loadingDiv.appendChild(header);
+                loadingDiv.appendChild(response);
+
+                resultsDiv.appendChild(loadingDiv);
+
+                // Run the test
+                const result = await testModel(model, prompt);
+                results.push({ model, result });
+
+                // Update the placeholder with actual results
+                loadingDiv.innerHTML = '';
+                loadingDiv.appendChild(createResultElement(model, result).children[0]);
+                loadingDiv.appendChild(createResultElement(model, result).children[1]);
+                loadingDiv.appendChild(createResultElement(model, result).children[2]);
+
+                completed++;
+                updateProgress(completed, models.length);
+            }
+
+            runButton.disabled = false;
+            runButton.textContent = 'Run Comparison Test';
+
+            // Sort results by speed (fastest first)
+            results.sort((a, b) => a.result.duration - b.result.duration);
+
+            console.log('Comparison Results:', results);
+        }
+
+        document.getElementById('runTest').addEventListener('click', runComparison);
+
+        // Set default prompt
+        document.getElementById('prompt').value = 'Give me a summary of India\'s history.';
+    </script>
+</body>
+</html>

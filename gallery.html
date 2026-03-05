@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gallery - Nagachethana PU College, Bengaluru. Explore our campus, events, sports, and cultural activities through photos.">
+    <meta name="keywords" content="Nagachethana PU College Gallery, Campus Photos, College Events, Sports, Cultural Activities, Yelahanka Bengaluru">
+    <title>Gallery | Nagachethana PU College, Bengaluru</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css?v=20260302">
+
+    <!-- Gallery Page Specific Styles -->
+    <style>
+        /* ===== PAGE HERO ===== */
+        .page-hero {
+            background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 50%, #1B5E20 100%);
+            padding: 120px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: 0;
+        }
+
+        .page-hero__content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-hero__title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            color: #FFFFFF;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .page-hero__breadcrumb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .page-hero__breadcrumb a {
+            color: #F9A825;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .page-hero__breadcrumb a:hover {
+            color: #FFFFFF;
+        }
+
+        .page-hero__breadcrumb .separator {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .page-hero__wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            line-height: 0;
+        }
+
+        .page-hero__wave svg {
+            width: 100%;
+            height: 60px;
+        }
+
+        /* ===== GALLERY FILTER TABS ===== */
+        .gallery-filter {
+            padding: 60px 0 20px;
+            background: #FFFFFF;
+        }
+
+        .gallery-filter__tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .gallery-filter__tab {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            padding: 10px 28px;
+            border: 2px solid #2E7D32;
+            border-radius: 50px;
+            background: transparent;
+            color: #2E7D32;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-filter__tab:hover {
+            background: #E8F5E9;
+        }
+
+        .gallery-filter__tab--active {
+            background: #2E7D32;
+            color: #FFFFFF;
+            border-color: #2E7D32;
+        }
+
+        .gallery-filter__tab--active:hover {
+            background: #1B5E20;
+            border-color: #1B5E20;
+        }
+
+        /* ===== GALLERY GRID ===== */
+        .gallery-section {
+            padding: 30px 0 80px;
+            background: #FFFFFF;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            min-height: 250px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-item--tall {
+            grid-row: span 2;
+            min-height: 520px;
+        }
+
+        .gallery-item__placeholder {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-item__placeholder i {
+            font-size: 3rem;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .gallery-item__overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-item__overlay {
+            background: linear-gradient(transparent, rgba(27, 94, 32, 0.85));
+        }
+
+        .gallery-item__caption {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #FFFFFF;
+            margin: 0;
+        }
+
+        .gallery-item__category {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            color: #F9A825;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+
+        .gallery-item__zoom {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(249, 168, 37, 0.9);
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-item__zoom {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        /* Placeholder Gradient Colors */
+        .gallery-item--gradient-1 .gallery-item__placeholder { background: linear-gradient(135deg, #43A047, #66BB6A); }
+        .gallery-item--gradient-2 .gallery-item__placeholder { background: linear-gradient(135deg, #2E7D32, #4CAF50); }
+        .gallery-item--gradient-3 .gallery-item__placeholder { background: linear-gradient(135deg, #558B2F, #8BC34A); }
+        .gallery-item--gradient-4 .gallery-item__placeholder { background: linear-gradient(135deg, #1B5E20, #388E3C); }
+        .gallery-item--gradient-5 .gallery-item__placeholder { background: linear-gradient(135deg, #F9A825, #FFD54F); }
+        .gallery-item--gradient-6 .gallery-item__placeholder { background: linear-gradient(135deg, #FF8F00, #FFB300); }
+        .gallery-item--gradient-7 .gallery-item__placeholder { background: linear-gradient(135deg, #00695C, #26A69A); }
+        .gallery-item--gradient-8 .gallery-item__placeholder { background: linear-gradient(135deg, #0277BD, #4FC3F7); }
+        .gallery-item--gradient-9 .gallery-item__placeholder { background: linear-gradient(135deg, #AD1457, #F06292); }
+        .gallery-item--gradient-10 .gallery-item__placeholder { background: linear-gradient(135deg, #6A1B9A, #AB47BC); }
+        .gallery-item--gradient-11 .gallery-item__placeholder { background: linear-gradient(135deg, #E65100, #FF9800); }
+        .gallery-item--gradient-12 .gallery-item__placeholder { background: linear-gradient(135deg, #283593, #5C6BC0); }
+
+        /* Gallery item hide/show animation */
+        .gallery-item.hide {
+            display: none;
+        }
+
+        .gallery-item.show {
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== LIGHTBOX ===== */
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.92);
+            z-index: 10000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox--active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox__content {
+            position: relative;
+            max-width: 80%;
+            max-height: 80%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox__image-container {
+            width: 700px;
+            max-width: 90vw;
+            height: 500px;
+            max-height: 70vh;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox__image-container i {
+            font-size: 5rem;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .lightbox__caption {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #FFFFFF;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .lightbox__category-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            color: #F9A825;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-top: 8px;
+        }
+
+        .lightbox__close {
+            position: absolute;
+            top: -50px;
+            right: -10px;
+            width: 44px;
+            height: 44px;
+            border: none;
+            background: rgba(255, 255, 255, 0.15);
+            color: #FFFFFF;
+            font-size: 1.5rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox__close:hover {
+            background: #F9A825;
+            transform: rotate(90deg);
+        }
+
+        .lightbox__nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            border: none;
+            background: rgba(255, 255, 255, 0.15);
+            color: #FFFFFF;
+            font-size: 1.2rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox__nav:hover {
+            background: #F9A825;
+        }
+
+        .lightbox__nav--prev {
+            left: -80px;
+        }
+
+        .lightbox__nav--next {
+            right: -80px;
+        }
+
+        /* ===== GALLERY CTA ===== */
+        .gallery-cta {
+            background: linear-gradient(135deg, #1B5E20 0%, #2E7D32 100%);
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery-cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: rgba(249, 168, 37, 0.1);
+            border-radius: 50%;
+        }
+
+        .gallery-cta::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+
+        .gallery-cta__content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .gallery-cta__icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: rgba(249, 168, 37, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+        }
+
+        .gallery-cta__icon i {
+            font-size: 1.8rem;
+            color: #F9A825;
+        }
+
+        .gallery-cta__title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 12px;
+        }
+
+        .gallery-cta__text {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 550px;
+            margin: 0 auto 32px;
+            line-height: 1.7;
+        }
+
+        .gallery-cta__btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 14px 36px;
+            border-radius: 50px;
+            background: #F9A825;
+            color: #212121;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(249, 168, 37, 0.3);
+        }
+
+        .gallery-cta__btn:hover {
+            background: #FFFFFF;
+            color: #1B5E20;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .gallery-item--tall {
+                grid-row: span 1;
+                min-height: 250px;
+            }
+
+            .lightbox__nav--prev {
+                left: -60px;
+            }
+
+            .lightbox__nav--next {
+                right: -60px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-hero {
+                padding: 100px 0 50px;
+            }
+
+            .page-hero__title {
+                font-size: 2.2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .gallery-item {
+                min-height: 200px;
+            }
+
+            .gallery-filter__tabs {
+                gap: 8px;
+            }
+
+            .gallery-filter__tab {
+                padding: 8px 20px;
+                font-size: 0.85rem;
+            }
+
+            .gallery-cta__title {
+                font-size: 1.8rem;
+            }
+
+            .lightbox__image-container {
+                width: 90vw;
+                height: 50vh;
+            }
+
+            .lightbox__nav--prev {
+                left: 10px;
+                top: auto;
+                bottom: -60px;
+            }
+
+            .lightbox__nav--next {
+                right: 10px;
+                top: auto;
+                bottom: -60px;
+            }
+
+            .lightbox__close {
+                top: -50px;
+                right: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-hero__title {
+                font-size: 1.8rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .gallery-item {
+                min-height: 220px;
+            }
+
+            .gallery-cta__title {
+                font-size: 1.5rem;
+            }
+
+            .gallery-cta__text {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <!-- ============================================
+         SECTION 3: PAGE HERO
+    ============================================= -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero__content">
+                <h1 class="page-hero__title">Our Gallery</h1>
+                <nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
+                    <a href="index.html">Home</a>
+                    <span class="separator"><i class="fas fa-chevron-right"></i></span>
+                    <span>Gallery</span>
+                </nav>
+            </div>
+        </div>
+        <div class="page-hero__wave">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+                <path d="M0,64 C360,120 1080,0 1440,64 L1440,120 L0,120 Z" fill="#ffffff"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 4: FILTER TABS
+    ============================================= -->
+    <section class="gallery-filter">
+        <div class="container">
+            <div class="gallery-filter__tabs" id="galleryFilterTabs">
+                <button class="gallery-filter__tab gallery-filter__tab--active" data-filter="all">
+                    <i class="fas fa-th-large"></i> All
+                </button>
+                <button class="gallery-filter__tab" data-filter="campus">
+                    <i class="fas fa-school"></i> Campus
+                </button>
+                <button class="gallery-filter__tab" data-filter="events">
+                    <i class="fas fa-calendar-alt"></i> Events
+                </button>
+                <button class="gallery-filter__tab" data-filter="sports">
+                    <i class="fas fa-futbol"></i> Sports
+                </button>
+                <button class="gallery-filter__tab" data-filter="cultural">
+                    <i class="fas fa-music"></i> Cultural
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 5: GALLERY GRID
+    ============================================= -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="gallery-grid" id="galleryGrid">
+
+                <!-- Campus Items -->
+                <div class="gallery-item gallery-item--gradient-1 gallery-item--tall show" data-category="campus">
+                    <div class="gallery-item__placeholder">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="gallery-item__zoom">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                    <div class="gallery-item__overlay">
+                        <p class="gallery-item__caption">College Building</p>
+                        <p class="gallery-item__category">Campus</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item gallery-item--gradient-2 show" data-category="campus">
+                    <div class="gallery-item__placeholder">
+                        <i class="fas fa-chalkboard"></i>
+                    </div>
+                    <div class="gallery-item__zoom">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                    <div class="gallery-item__overlay">
+                        <p class="gallery-item__caption">Classroom</p>
+                        <p class="gallery-item__category">Campus</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item gallery-item--gradient-3 show" data-category="campus">
+                    <div class="gallery-item__placeholder">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="gallery-item__zoom">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                    <div class="gallery-item__overlay">
+                        <p class="gallery-item__caption">Library</p>
+                        <p class="gallery-item__category">Campus</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item gallery-item--gradient-4 show" data-category="campus">
+                    <div class="gallery-item__placeholder">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <div class="gallery-item__zoom">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                    <div class="gallery-item__overlay">
+                        <p class="gallery-item__caption">Computer Lab</p>
+                        <p class="gallery-item__category">Campus</p>
+                    </div>
+                </div>
+
+                <!-- Events Items -->
+                <div class="gallery-item gallery-item--gradient-5 show" data-category="events">
+                    <div class="gallery-item__placeholder">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="gallery-item__zoom">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                    <div class="gallery-item__overlay">
+                        <p class="gallery-item__caption">Annual Day 2025</p>
+                        <p class="gallery-item__category">Events</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item gallery-item--gradient-6 gallery-item--tall show" data-category="events">
+                    <div class="gallery-item__placeholder">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <div class="gallery-item__zoom">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                    <div class="gallery-item__overlay">
+                        <p class="gallery-item__caption">Science Exhibition</p>
+                        <p class="gallery-item__category">Events</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item gallery-item--gradient-7 show" data-category="events">
+                    <div class="gallery-item__placeholder">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <div class="gallery-item__zoom">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                    <div class="gallery-item__overlay">
+                        <p class="gallery-item__caption">Guest Lecture</p>
+                        <p class="gallery-item__category">Events</p>
+                    </div>
+                </div>
+
+                <!-- Sports Items -->
+                <div class="gallery-item gallery-item--gradient-8 show" data-category="sports">
+                    <div class="gallery-item__placeholder">
+                        <i class="fas fa-running"></i>
+                    </div>
+                    <div class="gallery-item__zoom">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                    <div class="gallery-item__overlay">
+                        <p class="gallery-item__caption">Sports Day</p>
+                        <p class="gallery-item__category">Sports</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item gallery-item--gradient-9 show" data-category="sports">
+                    <div class="gallery-item__placeholder">
+                        <i class="fas fa-baseball-ball"></i>
+                    </div>
+                    <div class="gallery-item__zoom">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                    <div class="gallery-item__overlay">
+                        <p class="gallery-item__caption">Cricket Tournament</p>
+                        <p class="gallery-item__category">Sports</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item gallery-item--gradient-10 show" data-category="sports">
+                    <div class="gallery-item__placeholder">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <div class="gallery-item__zoom">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                    <div class="gallery-item__overlay">
+                        <p class="gallery-item__caption">Athletics Meet</p>
+                        <p class="gallery-item__category">Sports</p>
+                    </div>
+                </div>
+
+                <!-- Cultural Items -->
+                <div class="gallery-item gallery-item--gradient-11 show" data-category="cultural">
+                    <div class="gallery-item__placeholder">
+                        <i class="fas fa-theater-masks"></i>
+                    </div>
+                    <div class="gallery-item__zoom">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                    <div class="gallery-item__overlay">
+                        <p class="gallery-item__caption">Cultural Fest</p>
+                        <p class="gallery-item__category">Cultural</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item gallery-item--gradient-12 show" data-category="cultural">
+                    <div class="gallery-item__placeholder">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <div class="gallery-item__zoom">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                    <div class="gallery-item__overlay">
+                        <p class="gallery-item__caption">Dance Performance</p>
+                        <p class="gallery-item__category">Cultural</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 6: LIGHTBOX
+    ============================================= -->
+    <div class="lightbox" id="galleryLightbox" role="dialog" aria-modal="true" aria-label="Image lightbox">
+        <div class="lightbox__content">
+            <button class="lightbox__close" id="lightboxClose" aria-label="Close lightbox">
+                <i class="fas fa-times"></i>
+            </button>
+            <button class="lightbox__nav lightbox__nav--prev" id="lightboxPrev" aria-label="Previous image">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="lightbox__image-container" id="lightboxImageContainer">
+                <i class="fas fa-image"></i>
+            </div>
+            <button class="lightbox__nav lightbox__nav--next" id="lightboxNext" aria-label="Next image">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            <p class="lightbox__caption" id="lightboxCaption"></p>
+            <p class="lightbox__category-label" id="lightboxCategory"></p>
+        </div>
+    </div>
+
+    <!-- ============================================
+         SECTION 7: CTA
+    ============================================= -->
+    <section class="gallery-cta">
+        <div class="container">
+            <div class="gallery-cta__content">
+                <div class="gallery-cta__icon">
+                    <i class="fas fa-map-marked-alt"></i>
+                </div>
+                <h2 class="gallery-cta__title">Want to Experience Our Campus?</h2>
+                <p class="gallery-cta__text">Schedule a visit and explore our world-class facilities, meet our faculty, and see what makes Nagachethana PU College special.</p>
+                <a href="contact.html" class="gallery-cta__btn">
+                    <i class="fas fa-calendar-check"></i> Schedule a Visit
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 8: FOOTER
+    ============================================= -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Script -->
+    <script src="components.js"></script>
+    <script src="script.js"></script>
+
+    <!-- Gallery Page Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            // ===== GALLERY FILTER FUNCTIONALITY =====
+            const filterTabs = document.querySelectorAll('.gallery-filter__tab');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            filterTabs.forEach(function (tab) {
+                tab.addEventListener('click', function () {
+                    // Remove active class from all tabs
+                    filterTabs.forEach(function (t) {
+                        t.classList.remove('gallery-filter__tab--active');
+                    });
+                    // Add active class to clicked tab
+                    tab.classList.add('gallery-filter__tab--active');
+
+                    const filterValue = tab.getAttribute('data-filter');
+
+                    galleryItems.forEach(function (item) {
+                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            item.classList.remove('hide');
+                            item.classList.add('show');
+                        } else {
+                            item.classList.remove('show');
+                            item.classList.add('hide');
+                        }
+                    });
+                });
+            });
+
+            // ===== LIGHTBOX FUNCTIONALITY =====
+            const lightbox = document.getElementById('galleryLightbox');
+            const lightboxImageContainer = document.getElementById('lightboxImageContainer');
+            const lightboxCaption = document.getElementById('lightboxCaption');
+            const lightboxCategory = document.getElementById('lightboxCategory');
+            const lightboxClose = document.getElementById('lightboxClose');
+            const lightboxPrev = document.getElementById('lightboxPrev');
+            const lightboxNext = document.getElementById('lightboxNext');
+            let currentIndex = 0;
+            let visibleItems = [];
+
+            function getVisibleItems() {
+                return Array.from(document.querySelectorAll('.gallery-item:not(.hide)'));
+            }
+
+            function openLightbox(index) {
+                visibleItems = getVisibleItems();
+                currentIndex = index;
+                updateLightboxContent();
+                lightbox.style.display = 'flex';
+                // Trigger reflow for transition
+                lightbox.offsetHeight;
+                lightbox.classList.add('lightbox--active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeLightbox() {
+                lightbox.classList.remove('lightbox--active');
+                setTimeout(function () {
+                    lightbox.style.display = 'none';
+                }, 300);
+                document.body.style.overflow = '';
+            }
+
+            function updateLightboxContent() {
+                if (visibleItems.length === 0) return;
+                var item = visibleItems[currentIndex];
+                var placeholder = item.querySelector('.gallery-item__placeholder');
+                var caption = item.querySelector('.gallery-item__caption').textContent;
+                var category = item.querySelector('.gallery-item__category').textContent;
+
+                // Clone the gradient background
+                var bgStyle = window.getComputedStyle(placeholder).background;
+                lightboxImageContainer.style.background = bgStyle;
+                lightboxImageContainer.innerHTML = '<i class="' + placeholder.querySelector('i').className + '" style="font-size:5rem;color:rgba(255,255,255,0.3);"></i>';
+
+                lightboxCaption.textContent = caption;
+                lightboxCategory.textContent = category;
+            }
+
+            function showPrev() {
+                visibleItems = getVisibleItems();
+                currentIndex = (currentIndex - 1 + visibleItems.length) % visibleItems.length;
+                updateLightboxContent();
+            }
+
+            function showNext() {
+                visibleItems = getVisibleItems();
+                currentIndex = (currentIndex + 1) % visibleItems.length;
+                updateLightboxContent();
+            }
+
+            // Attach click event to each gallery item
+            galleryItems.forEach(function (item) {
+                item.addEventListener('click', function () {
+                    visibleItems = getVisibleItems();
+                    var idx = visibleItems.indexOf(item);
+                    if (idx !== -1) {
+                        openLightbox(idx);
+                    }
+                });
+            });
+
+            lightboxClose.addEventListener('click', closeLightbox);
+            lightboxPrev.addEventListener('click', showPrev);
+            lightboxNext.addEventListener('click', showNext);
+
+            // Close lightbox on background click
+            lightbox.addEventListener('click', function (e) {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+
+            // Keyboard navigation
+            document.addEventListener('keydown', function (e) {
+                if (!lightbox.classList.contains('lightbox--active')) return;
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') showPrev();
+                if (e.key === 'ArrowRight') showNext();
+            });
+
+        });
+    </script>
+</body>
+</html>

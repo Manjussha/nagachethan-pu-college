@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academics - Nagachethana PU College, Bengaluru</title>
+    <meta name="description" content="Explore academic programs at Nagachethana PU College - Science (PCMB, PCMC) and Commerce streams with experienced faculty and modern facilities.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="styles.css?v=20260302">
+
+    <style>
+        /* ===== PAGE HERO ===== */
+        .page-hero {
+            background: linear-gradient(135deg, var(--forest-green) 0%, var(--emerald) 50%, #388E3C 100%);
+            padding: 80px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 50%;
+        }
+
+        .page-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 350px;
+            height: 350px;
+            background: rgba(249, 168, 37, 0.08);
+            border-radius: 50%;
+        }
+
+        .page-hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-hero h1 span {
+            color: var(--amber-gold);
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+            position: relative;
+            z-index: 1;
+        }
+
+        .breadcrumb a {
+            color: rgba(255, 255, 255, 0.8);
+            transition: var(--transition);
+        }
+
+        .breadcrumb a:hover {
+            color: var(--amber-gold);
+        }
+
+        .breadcrumb .separator {
+            color: var(--amber-gold);
+            font-size: 0.8rem;
+        }
+
+        .breadcrumb .current {
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        /* ===== SECTION STYLES ===== */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--forest-green);
+            margin-bottom: 12px;
+        }
+
+        .section-header p {
+            font-size: 1.05rem;
+            color: var(--cool-gray);
+            max-width: 640px;
+            margin: 0 auto;
+        }
+
+        .section-header .divider {
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--amber-gold), var(--emerald));
+            border-radius: 2px;
+            margin: 16px auto 0;
+        }
+
+        /* ===== STREAM CARDS ===== */
+        .streams-section {
+            background: var(--soft-green);
+        }
+
+        .streams-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .stream-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stream-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .stream-card-header {
+            padding: 32px 28px 24px;
+            position: relative;
+            color: var(--white);
+        }
+
+        .stream-card-header.science-header {
+            background: linear-gradient(135deg, #1565C0, #1976D2, #42A5F5);
+        }
+
+        .stream-card-header.commerce-header {
+            background: linear-gradient(135deg, #E65100, #F57C00, #FFA726);
+        }
+
+        .stream-card-header .stream-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin-bottom: 16px;
+            backdrop-filter: blur(4px);
+        }
+
+        .stream-card-header h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .stream-card-header p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .stream-card-body {
+            padding: 28px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stream-combo {
+            margin-bottom: 20px;
+        }
+
+        .stream-combo h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--forest-green);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .stream-combo h4 .combo-badge {
+            background: var(--soft-green);
+            color: var(--emerald);
+            font-size: 0.7rem;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .subjects-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .subjects-list li {
+            background: var(--soft-green);
+            color: var(--forest-green);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            border: 1px solid rgba(46, 125, 50, 0.15);
+        }
+
+        .eligibility-box {
+            background: var(--warm-cream);
+            border-left: 4px solid var(--amber-gold);
+            padding: 14px 18px;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            margin-top: auto;
+            margin-bottom: 20px;
+        }
+
+        .eligibility-box p {
+            font-size: 0.88rem;
+            color: var(--charcoal);
+        }
+
+        .eligibility-box strong {
+            color: var(--forest-green);
+        }
+
+        .stream-card .btn-apply {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-family: var(--font-heading);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--white);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            width: 100%;
+        }
+
+        .stream-card .btn-apply.science-btn {
+            background: linear-gradient(135deg, #1565C0, #1976D2);
+        }
+
+        .stream-card .btn-apply.science-btn:hover {
+            background: linear-gradient(135deg, #0D47A1, #1565C0);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(21, 101, 192, 0.35);
+        }
+
+        .stream-card .btn-apply.commerce-btn {
+            background: linear-gradient(135deg, #E65100, #F57C00);
+        }
+
+        .stream-card .btn-apply.commerce-btn:hover {
+            background: linear-gradient(135deg, #BF360C, #E65100);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(230, 81, 0, 0.35);
+        }
+
+        /* ===== TEACHING APPROACH ===== */
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 28px;
+        }
+
+        .approach-card {
+            text-align: center;
+            padding: 36px 24px;
+            background: var(--white);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .approach-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--emerald);
+        }
+
+        .approach-card .icon-circle {
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, var(--soft-green), #C8E6C9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            transition: var(--transition);
+        }
+
+        .approach-card:hover .icon-circle {
+            background: linear-gradient(135deg, var(--forest-green), var(--emerald));
+        }
+
+        .approach-card .icon-circle i {
+            font-size: 1.6rem;
+            color: var(--forest-green);
+            transition: var(--transition);
+        }
+
+        .approach-card:hover .icon-circle i {
+            color: var(--white);
+        }
+
+        .approach-card h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: 10px;
+        }
+
+        .approach-card p {
+            font-size: 0.88rem;
+            color: var(--cool-gray);
+            line-height: 1.6;
+        }
+
+        /* ===== FACILITIES ===== */
+        .facilities-section {
+            background: var(--soft-green);
+        }
+
+        .facilities-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .facility-item {
+            position: relative;
+            height: 220px;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            cursor: default;
+        }
+
+        .facility-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .facility-item .facility-bg {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .facility-item .facility-bg i {
+            font-size: 3rem;
+            color: rgba(255, 255, 255, 0.5);
+            transition: var(--transition);
+        }
+
+        .facility-item:hover .facility-bg i {
+            transform: scale(1.15);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .facility-bg.physics-lab {
+            background: linear-gradient(135deg, #1565C0, #42A5F5);
+        }
+
+        .facility-bg.chemistry-lab {
+            background: linear-gradient(135deg, #6A1B9A, #AB47BC);
+        }
+
+        .facility-bg.biology-lab {
+            background: linear-gradient(135deg, #2E7D32, #66BB6A);
+        }
+
+        .facility-bg.computer-lab {
+            background: linear-gradient(135deg, #00695C, #26A69A);
+        }
+
+        .facility-bg.library {
+            background: linear-gradient(135deg, #E65100, #FFA726);
+        }
+
+        .facility-bg.smart-classrooms {
+            background: linear-gradient(135deg, #C62828, #EF5350);
+        }
+
+        .facility-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 16px 20px;
+            background: linear-gradient(to top, rgba(0,0,0,0.75), transparent);
+            color: var(--white);
+        }
+
+        .facility-overlay h4 {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .facility-overlay p {
+            font-size: 0.78rem;
+            opacity: 0.85;
+            margin-top: 2px;
+        }
+
+        /* ===== RESULTS HIGHLIGHT ===== */
+        .results-section {
+            background: linear-gradient(135deg, var(--forest-green) 0%, var(--emerald) 50%, #388E3C 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .results-section::before {
+            content: '';
+            position: absolute;
+            top: -60%;
+            right: -15%;
+            width: 450px;
+            height: 450px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 50%;
+        }
+
+        .results-section::after {
+            content: '';
+            position: absolute;
+            bottom: -40%;
+            left: -10%;
+            width: 300px;
+            height: 300px;
+            background: rgba(249, 168, 37, 0.06);
+            border-radius: 50%;
+        }
+
+        .results-section .section-header h2 {
+            color: var(--white);
+        }
+
+        .results-section .section-header p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .results-section .section-header .divider {
+            background: linear-gradient(90deg, var(--amber-gold), rgba(255, 255, 255, 0.5));
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 28px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 32px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            background: rgba(255, 255, 255, 0.18);
+            transform: translateY(-4px);
+        }
+
+        .stat-card .stat-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(249, 168, 37, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+        }
+
+        .stat-card .stat-icon i {
+            font-size: 1.3rem;
+            color: var(--amber-gold);
+        }
+
+        .stat-number {
+            font-family: var(--font-heading);
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 500;
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            background: var(--warm-cream);
+            text-align: center;
+        }
+
+        .cta-content h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--forest-green);
+            margin-bottom: 12px;
+        }
+
+        .cta-content p {
+            font-size: 1.1rem;
+            color: var(--cool-gray);
+            margin-bottom: 30px;
+            max-width: 550px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--forest-green), var(--emerald));
+            color: var(--white);
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-family: var(--font-heading);
+            font-size: 1.05rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(27, 94, 32, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(27, 94, 32, 0.4);
+            background: linear-gradient(135deg, var(--emerald), var(--forest-green));
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .streams-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .approach-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .section {
+                padding: 50px 0;
+            }
+
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .approach-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .facilities-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cta-content h2 {
+                font-size: 1.7rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .facilities-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <!-- ===== PAGE HERO ===== -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Our <span>Academics</span></h1>
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <span class="separator"><i class="fas fa-chevron-right"></i></span>
+                <span class="current">Academics</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- ===== STREAM CARDS ===== -->
+    <section class="section streams-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Streams We Offer</h2>
+                <p>Choose the academic path that aligns with your passion and career aspirations. We provide a strong foundation in both Science and Commerce.</p>
+                <div class="divider"></div>
+            </div>
+
+            <div class="streams-grid">
+                <!-- Science Stream -->
+                <article class="stream-card">
+                    <div class="stream-card-header science-header">
+                        <div class="stream-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h3>Science Stream</h3>
+                        <p>Unlock the world of discovery and innovation</p>
+                    </div>
+                    <div class="stream-card-body">
+                        <div class="stream-combo">
+                            <h4>
+                                PCMB + KCET
+                                <span class="combo-badge">Combination 1</span>
+                            </h4>
+                            <ul class="subjects-list">
+                                <li><i class="fas fa-atom"></i> Physics</li>
+                                <li><i class="fas fa-vial"></i> Chemistry</li>
+                                <li><i class="fas fa-square-root-variable"></i> Mathematics</li>
+                                <li><i class="fas fa-dna"></i> Biology</li>
+                                <li><i class="fas fa-bullseye"></i> KCET Coaching</li>
+                            </ul>
+                        </div>
+
+                        <div class="stream-combo">
+                            <h4>
+                                PCMB + NEET
+                                <span class="combo-badge">Combination 2</span>
+                            </h4>
+                            <ul class="subjects-list">
+                                <li><i class="fas fa-atom"></i> Physics</li>
+                                <li><i class="fas fa-vial"></i> Chemistry</li>
+                                <li><i class="fas fa-square-root-variable"></i> Mathematics</li>
+                                <li><i class="fas fa-dna"></i> Biology</li>
+                                <li><i class="fas fa-stethoscope"></i> NEET Coaching</li>
+                            </ul>
+                        </div>
+
+                        <div class="stream-combo">
+                            <h4>
+                                PCMC + KCET
+                                <span class="combo-badge">Combination 3</span>
+                            </h4>
+                            <ul class="subjects-list">
+                                <li><i class="fas fa-atom"></i> Physics</li>
+                                <li><i class="fas fa-vial"></i> Chemistry</li>
+                                <li><i class="fas fa-square-root-variable"></i> Mathematics</li>
+                                <li><i class="fas fa-laptop-code"></i> Computer Science</li>
+                                <li><i class="fas fa-bullseye"></i> KCET Coaching</li>
+                            </ul>
+                        </div>
+
+                        <div class="stream-combo">
+                            <h4>
+                                PCMB + JEE
+                                <span class="combo-badge">Combination 4</span>
+                            </h4>
+                            <ul class="subjects-list">
+                                <li><i class="fas fa-atom"></i> Physics</li>
+                                <li><i class="fas fa-vial"></i> Chemistry</li>
+                                <li><i class="fas fa-square-root-variable"></i> Mathematics</li>
+                                <li><i class="fas fa-dna"></i> Biology</li>
+                                <li><i class="fas fa-rocket"></i> JEE Coaching</li>
+                            </ul>
+                        </div>
+
+                        <a href="admissions.html" class="btn-apply science-btn">
+                            <i class="fas fa-paper-plane"></i> Apply Now for Science
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Commerce Stream -->
+                <article class="stream-card">
+                    <div class="stream-card-header commerce-header">
+                        <div class="stream-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Commerce Stream</h3>
+                        <p>Build your expertise in business and finance</p>
+                    </div>
+                    <div class="stream-card-body">
+                        <div class="stream-combo">
+                            <h4>
+                                CEBA
+                                <span class="combo-badge">Combination 1</span>
+                            </h4>
+                            <ul class="subjects-list">
+                                <li><i class="fas fa-laptop-code"></i> Computer Science</li>
+                                <li><i class="fas fa-chart-pie"></i> Economics</li>
+                                <li><i class="fas fa-briefcase"></i> Business Studies</li>
+                                <li><i class="fas fa-calculator"></i> Accountancy</li>
+                                <li><i class="fas fa-book"></i> English</li>
+                                <li><i class="fas fa-language"></i> Kannada / Hindi</li>
+                            </ul>
+                        </div>
+
+                        <div class="stream-combo">
+                            <h4>
+                                HEBA
+                                <span class="combo-badge">Combination 2</span>
+                            </h4>
+                            <ul class="subjects-list">
+                                <li><i class="fas fa-landmark"></i> History</li>
+                                <li><i class="fas fa-chart-pie"></i> Economics</li>
+                                <li><i class="fas fa-briefcase"></i> Business Studies</li>
+                                <li><i class="fas fa-calculator"></i> Accountancy</li>
+                                <li><i class="fas fa-book"></i> English</li>
+                                <li><i class="fas fa-language"></i> Kannada / Hindi</li>
+                            </ul>
+                        </div>
+
+                        <a href="admissions.html" class="btn-apply commerce-btn">
+                            <i class="fas fa-paper-plane"></i> Apply Now for Commerce
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TEACHING APPROACH ===== -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Teaching Approach</h2>
+                <p>We blend traditional values with modern teaching methodologies to deliver a holistic education that prepares students for the future.</p>
+                <div class="divider"></div>
+            </div>
+
+            <div class="approach-grid">
+                <div class="approach-card">
+                    <div class="icon-circle">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h4>Experienced Faculty</h4>
+                    <p>Qualified and dedicated teachers committed to nurturing every student's potential with personalized guidance.</p>
+                </div>
+
+                <div class="approach-card">
+                    <div class="icon-circle">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <h4>Practical Learning</h4>
+                    <p>Hands-on laboratory experiments and real-world project work that brings theoretical concepts to life.</p>
+                </div>
+
+                <div class="approach-card">
+                    <div class="icon-circle">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <h4>Regular Assessments</h4>
+                    <p>Continuous evaluation through tests, assignments, and constructive feedback to track student progress.</p>
+                </div>
+
+                <div class="approach-card">
+                    <div class="icon-circle">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <h4>Doubt Clearing</h4>
+                    <p>Special sessions dedicated to resolving doubts with personalized attention for every student.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FACILITIES ===== -->
+    <section class="section facilities-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Academic Facilities</h2>
+                <p>State-of-the-art infrastructure designed to support an enriching learning experience for all students.</p>
+                <div class="divider"></div>
+            </div>
+
+            <div class="facilities-grid">
+                <div class="facility-item">
+                    <div class="facility-bg physics-lab">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <div class="facility-overlay">
+                        <h4>Physics Lab</h4>
+                        <p>Advanced equipment for hands-on experiments</p>
+                    </div>
+                </div>
+
+                <div class="facility-item">
+                    <div class="facility-bg chemistry-lab">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <div class="facility-overlay">
+                        <h4>Chemistry Lab</h4>
+                        <p>Well-equipped for practical demonstrations</p>
+                    </div>
+                </div>
+
+                <div class="facility-item">
+                    <div class="facility-bg biology-lab">
+                        <i class="fas fa-dna"></i>
+                    </div>
+                    <div class="facility-overlay">
+                        <h4>Biology Lab</h4>
+                        <p>Specimens and microscopes for in-depth study</p>
+                    </div>
+                </div>
+
+                <div class="facility-item">
+                    <div class="facility-bg computer-lab">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <div class="facility-overlay">
+                        <h4>Computer Lab</h4>
+                        <p>Modern systems with latest software tools</p>
+                    </div>
+                </div>
+
+                <div class="facility-item">
+                    <div class="facility-bg library">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="facility-overlay">
+                        <h4>Library</h4>
+                        <p>Extensive collection of books and references</p>
+                    </div>
+                </div>
+
+                <div class="facility-item">
+                    <div class="facility-bg smart-classrooms">
+                        <i class="fas fa-tv"></i>
+                    </div>
+                    <div class="facility-overlay">
+                        <h4>Smart Classrooms</h4>
+                        <p>Interactive digital boards and AV equipment</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== RESULTS HIGHLIGHT ===== -->
+    <section class="section results-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Results Speak</h2>
+                <p>A legacy of academic excellence that continues to inspire the next generation of leaders and achievers.</p>
+                <div class="divider"></div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="stat-number" data-target="98">0</div>
+                    <div class="stat-suffix">%</div>
+                    <div class="stat-label">Pass Rate</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="stat-number" data-target="50">0</div>
+                    <div class="stat-suffix">+</div>
+                    <div class="stat-label">Distinction Holders</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="stat-number" data-target="10">0</div>
+                    <div class="stat-suffix">+</div>
+                    <div class="stat-label">University Ranks</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="stat-number" data-target="100">0</div>
+                    <div class="stat-suffix">%</div>
+                    <div class="stat-label">Faculty Qualified</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA SECTION ===== -->
+    <section class="section cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Join?</h2>
+                <p>Start your academic journey with Nagachethana PU College and build a strong foundation for your future.</p>
+                <a href="admissions.html" class="btn-primary">
+                    <i class="fas fa-paper-plane"></i> Apply Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <!-- Script -->
+    <script src="components.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

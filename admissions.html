@@ -1,0 +1,1481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Admissions 2026-27 at Nagachethana PU College, Bengaluru. Apply now for Science and Commerce streams. Empowering Good Education since 2015.">
+    <title>Admissions 2026-27 | Nagachethana PU College, Bengaluru</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="styles.css?v=20260302">
+
+    <style>
+        /* ===== CSS Variables / Design Tokens ===== */
+        :root {
+            --forest-green: #1B5E20;
+            --emerald: #2E7D32;
+            --amber-gold: #F9A825;
+            --soft-green: #E8F5E9;
+            --warm-cream: #FFF8E1;
+            --charcoal: #212121;
+            --cool-gray: #616161;
+            --white: #FFFFFF;
+
+            --font-heading: 'Poppins', sans-serif;
+            --font-body: 'Inter', sans-serif;
+
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.12);
+            --shadow-lg: 0 8px 32px rgba(0,0,0,0.16);
+            --radius: 12px;
+            --radius-sm: 8px;
+            --transition: 0.3s ease;
+        }
+
+        /* ===== Reset & Base ===== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--charcoal);
+            line-height: 1.7;
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            line-height: 1.3;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color var(--transition);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== 1. Announcement Bar ===== */
+        .announcement-bar {
+            background: linear-gradient(135deg, var(--forest-green), var(--emerald));
+            color: var(--white);
+            text-align: center;
+            padding: 10px 20px;
+            font-family: var(--font-heading);
+            font-size: 0.95rem;
+            font-weight: 500;
+            position: relative;
+            z-index: 1001;
+            letter-spacing: 0.3px;
+        }
+
+        .announcement-bar a {
+            color: var(--amber-gold);
+            font-weight: 700;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            margin-left: 6px;
+        }
+
+        .announcement-bar a:hover {
+            color: var(--warm-cream);
+        }
+
+        .announcement-bar .dismiss-btn {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0.8;
+            transition: opacity var(--transition);
+            line-height: 1;
+        }
+
+        .announcement-bar .dismiss-btn:hover {
+            opacity: 1;
+        }
+
+        .announcement-bar.dismissed {
+            display: none;
+        }
+
+        /* ===== 2. Navbar ===== */
+        .navbar {
+            background: var(--white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: box-shadow var(--transition);
+        }
+
+        .navbar.scrolled {
+            box-shadow: var(--shadow-md);
+        }
+
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 0;
+            padding-bottom: 0;
+            min-height: 72px;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .navbar-brand img {
+            height: 52px;
+            width: 52px;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+
+        .navbar-brand-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar-brand-text .college-name {
+            font-family: var(--font-heading);
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--forest-green);
+            line-height: 1.2;
+        }
+
+        .navbar-brand-text .tagline {
+            font-size: 0.75rem;
+            color: var(--cool-gray);
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            gap: 4px;
+        }
+
+        .nav-links li a {
+            display: inline-block;
+            padding: 8px 18px;
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--charcoal);
+            border-radius: 8px;
+            transition: all var(--transition);
+            position: relative;
+        }
+
+        .nav-links li a:hover {
+            color: var(--emerald);
+            background-color: var(--soft-green);
+        }
+
+        .nav-links li a.active {
+            color: var(--white);
+            background-color: var(--forest-green);
+        }
+
+        .nav-links li a.active:hover {
+            background-color: var(--emerald);
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--amber-gold), #F57F17) !important;
+            color: var(--charcoal) !important;
+            font-weight: 600 !important;
+            padding: 10px 22px !important;
+            border-radius: 50px !important;
+            box-shadow: 0 2px 8px rgba(249, 168, 37, 0.35);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(249, 168, 37, 0.5) !important;
+            background: linear-gradient(135deg, #F57F17, var(--amber-gold)) !important;
+            color: var(--charcoal) !important;
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--forest-green);
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        /* ===== 3. Page Hero ===== */
+        .page-hero {
+            background: linear-gradient(135deg, var(--forest-green) 0%, var(--emerald) 50%, #388E3C 100%);
+            color: var(--white);
+            padding: 60px 0 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.04);
+        }
+
+        .page-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.03);
+        }
+
+        .page-hero h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-hero .breadcrumb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-hero .breadcrumb a {
+            color: var(--amber-gold);
+            font-weight: 500;
+        }
+
+        .page-hero .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .page-hero .breadcrumb .separator {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .page-hero .breadcrumb .current {
+            color: var(--white);
+            font-weight: 500;
+        }
+
+        /* ===== Section Common Styles ===== */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-alt {
+            background-color: var(--soft-green);
+        }
+
+        .section-cream {
+            background-color: var(--warm-cream);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--forest-green);
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            font-size: 1.05rem;
+            color: var(--cool-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .section-title .accent-line {
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--amber-gold), var(--emerald));
+            border-radius: 2px;
+            margin: 14px auto 0;
+        }
+
+        /* ===== 4. Admission Steps ===== */
+        .steps-grid {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 0;
+            position: relative;
+        }
+
+        .step-item {
+            flex: 1;
+            max-width: 260px;
+            text-align: center;
+            position: relative;
+            padding: 0 15px;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--amber-gold);
+            color: var(--charcoal);
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            box-shadow: 0 3px 10px rgba(249,168,37,0.3);
+        }
+
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 18px;
+            box-shadow: var(--shadow-md);
+            border: 3px solid var(--soft-green);
+            transition: all var(--transition);
+        }
+
+        .step-item:hover .step-icon {
+            border-color: var(--emerald);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .step-icon i {
+            font-size: 1.8rem;
+            color: var(--emerald);
+        }
+
+        .step-item h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--forest-green);
+            margin-bottom: 8px;
+        }
+
+        .step-item p {
+            font-size: 0.9rem;
+            color: var(--cool-gray);
+            line-height: 1.6;
+        }
+
+        /* Connector lines between steps */
+        .step-connector {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 40px;
+            padding-top: 96px; /* Align with icon center */
+        }
+
+        .step-connector .line {
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--emerald), var(--amber-gold));
+            position: relative;
+        }
+
+        .step-connector .line::after {
+            content: '';
+            position: absolute;
+            right: -4px;
+            top: -4px;
+            width: 0;
+            height: 0;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            border-left: 8px solid var(--amber-gold);
+        }
+
+        /* ===== 5. Eligibility Criteria ===== */
+        .eligibility-table-wrapper {
+            overflow-x: auto;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+        }
+
+        .eligibility-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--white);
+            min-width: 600px;
+        }
+
+        .eligibility-table thead th {
+            background: var(--forest-green);
+            color: var(--white);
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 16px 24px;
+            text-align: left;
+        }
+
+        .eligibility-table thead th:first-child {
+            border-top-left-radius: var(--radius);
+        }
+
+        .eligibility-table thead th:last-child {
+            border-top-right-radius: var(--radius);
+        }
+
+        .eligibility-table tbody td {
+            padding: 14px 24px;
+            border-bottom: 1px solid #E0E0E0;
+            font-size: 0.95rem;
+            color: var(--charcoal);
+        }
+
+        .eligibility-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .eligibility-table tbody tr:nth-child(even) {
+            background-color: var(--soft-green);
+        }
+
+        .eligibility-table tbody tr:hover {
+            background-color: #C8E6C9;
+        }
+
+        .eligibility-table tbody td:first-child {
+            font-weight: 600;
+            color: var(--forest-green);
+        }
+
+        /* ===== 6. Enquiry Form ===== */
+        .enquiry-section {
+            background: linear-gradient(135deg, var(--forest-green) 0%, var(--emerald) 100%);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .enquiry-section::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.04);
+        }
+
+        .enquiry-section .section-title h2 {
+            color: var(--white);
+        }
+
+        .enquiry-section .section-title p {
+            color: rgba(255,255,255,0.85);
+        }
+
+        .enquiry-section .accent-line {
+            background: linear-gradient(90deg, var(--amber-gold), var(--white));
+        }
+
+        .enquiry-form-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 40px;
+            max-width: 720px;
+            margin: 0 auto;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            z-index: 1;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 6px;
+        }
+
+        .form-group label .required {
+            color: #D32F2F;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            padding: 12px 16px;
+            border: 2px solid #E0E0E0;
+            border-radius: var(--radius-sm);
+            color: var(--charcoal);
+            background: var(--white);
+            transition: border-color var(--transition), box-shadow var(--transition);
+            outline: none;
+            width: 100%;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--emerald);
+            box-shadow: 0 0 0 3px rgba(46,125,50,0.15);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #BDBDBD;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-submit-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 14px 32px;
+            background: linear-gradient(135deg, var(--amber-gold), #F57F17);
+            color: var(--charcoal);
+            font-family: var(--font-heading);
+            font-size: 1.05rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all var(--transition);
+            box-shadow: 0 4px 16px rgba(249,168,37,0.35);
+            margin-top: 10px;
+        }
+
+        .form-submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(249,168,37,0.5);
+        }
+
+        .form-submit-btn i {
+            font-size: 1rem;
+        }
+
+        .form-note {
+            text-align: center;
+            margin-top: 18px;
+            font-size: 0.85rem;
+            color: var(--cool-gray);
+        }
+
+        .form-note i {
+            color: var(--emerald);
+            margin-right: 5px;
+        }
+
+        /* ===== 7. Fee Overview ===== */
+        .fee-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 40px;
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto;
+            box-shadow: var(--shadow-md);
+            border: 2px solid var(--soft-green);
+        }
+
+        .fee-card .fee-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: var(--soft-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .fee-card .fee-icon i {
+            font-size: 1.6rem;
+            color: var(--emerald);
+        }
+
+        .fee-card p {
+            font-size: 1.05rem;
+            color: var(--cool-gray);
+            margin-bottom: 28px;
+            line-height: 1.8;
+        }
+
+        .fee-buttons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-family: var(--font-heading);
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition);
+            border: none;
+            text-decoration: none;
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: var(--white);
+            box-shadow: 0 3px 12px rgba(37,211,102,0.3);
+        }
+
+        .btn-whatsapp:hover {
+            background: #1DA851;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 18px rgba(37,211,102,0.4);
+        }
+
+        .btn-call {
+            background: var(--forest-green);
+            color: var(--white);
+            box-shadow: 0 3px 12px rgba(27,94,32,0.3);
+        }
+
+        .btn-call:hover {
+            background: var(--emerald);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 18px rgba(27,94,32,0.4);
+        }
+
+        /* ===== 8. Important Dates ===== */
+        .dates-timeline {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .dates-timeline::before {
+            content: '';
+            position: absolute;
+            left: 28px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--emerald), var(--amber-gold));
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 24px;
+            padding: 0 0 36px 0;
+            position: relative;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-dot {
+            width: 56px;
+            height: 56px;
+            min-width: 56px;
+            border-radius: 50%;
+            background: var(--white);
+            border: 3px solid var(--emerald);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition);
+        }
+
+        .timeline-item:hover .timeline-dot {
+            border-color: var(--amber-gold);
+            transform: scale(1.08);
+            box-shadow: var(--shadow-md);
+        }
+
+        .timeline-dot i {
+            font-size: 1.2rem;
+            color: var(--emerald);
+        }
+
+        .timeline-item:hover .timeline-dot i {
+            color: var(--amber-gold);
+        }
+
+        .timeline-content {
+            background: var(--white);
+            border-radius: var(--radius-sm);
+            padding: 20px 24px;
+            box-shadow: var(--shadow-sm);
+            flex: 1;
+            border-left: 4px solid var(--emerald);
+            transition: all var(--transition);
+        }
+
+        .timeline-item:hover .timeline-content {
+            box-shadow: var(--shadow-md);
+            border-left-color: var(--amber-gold);
+        }
+
+        .timeline-content h4 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--forest-green);
+            margin-bottom: 4px;
+        }
+
+        .timeline-content .date-badge {
+            display: inline-block;
+            background: var(--soft-green);
+            color: var(--emerald);
+            font-family: var(--font-heading);
+            font-size: 0.82rem;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+
+        /* ===== 9. Download Prospectus ===== */
+        .prospectus-section {
+            background: linear-gradient(135deg, var(--warm-cream) 0%, #FFF3E0 100%);
+            text-align: center;
+        }
+
+        .prospectus-card {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .prospectus-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .prospectus-icon i {
+            font-size: 2rem;
+            color: var(--amber-gold);
+        }
+
+        .prospectus-card p {
+            font-size: 1.05rem;
+            color: var(--cool-gray);
+            margin-bottom: 28px;
+            line-height: 1.8;
+        }
+
+        .btn-download {
+            background: linear-gradient(135deg, var(--forest-green), var(--emerald));
+            color: var(--white);
+            padding: 14px 36px;
+            font-size: 1rem;
+            box-shadow: 0 4px 16px rgba(27,94,32,0.3);
+        }
+
+        .btn-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(27,94,32,0.4);
+        }
+
+        /* ===== 10. Footer ===== */
+        .footer {
+            background: var(--charcoal);
+            color: rgba(255,255,255,0.85);
+            padding: 60px 0 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1.3fr;
+            gap: 40px;
+            padding-bottom: 40px;
+        }
+
+        .footer-brand img {
+            height: 56px;
+            width: 56px;
+            border-radius: 50%;
+            margin-bottom: 14px;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 6px;
+        }
+
+        .footer-brand .tagline {
+            font-size: 0.85rem;
+            color: var(--amber-gold);
+            font-weight: 500;
+            margin-bottom: 14px;
+        }
+
+        .footer-brand p {
+            font-size: 0.88rem;
+            line-height: 1.7;
+            color: rgba(255,255,255,0.65);
+        }
+
+        .footer h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 18px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 3px;
+            background: var(--amber-gold);
+            border-radius: 2px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links li a {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+            transition: all var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .footer-links li a:hover {
+            color: var(--amber-gold);
+            padding-left: 4px;
+        }
+
+        .footer-contact li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 14px;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .footer-contact li i {
+            color: var(--amber-gold);
+            margin-top: 4px;
+            min-width: 16px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .footer-social a {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1rem;
+            transition: all var(--transition);
+        }
+
+        .footer-social a:hover {
+            background: var(--amber-gold);
+            color: var(--charcoal);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* ===== Responsive Design ===== */
+        @media (max-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .steps-grid {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .step-connector {
+                padding-top: 0;
+                transform: rotate(90deg);
+                min-width: auto;
+                min-height: 40px;
+            }
+
+            .step-item {
+                max-width: 320px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .announcement-bar {
+                font-size: 0.82rem;
+                padding: 8px 40px 8px 16px;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 72px;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                flex-direction: column;
+                padding: 16px 20px;
+                box-shadow: var(--shadow-md);
+                border-top: 2px solid var(--soft-green);
+                gap: 4px;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links li a {
+                display: block;
+                padding: 12px 16px;
+                border-radius: var(--radius-sm);
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .page-hero h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 50px 0;
+            }
+
+            .section-title h2 {
+                font-size: 1.6rem;
+            }
+
+            .eligibility-table thead th,
+            .eligibility-table tbody td {
+                padding: 12px 16px;
+                font-size: 0.88rem;
+            }
+
+            .enquiry-form-card {
+                padding: 24px;
+            }
+
+            .fee-card {
+                padding: 28px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-hero h1 {
+                font-size: 1.6rem;
+            }
+
+            .page-hero .breadcrumb {
+                font-size: 0.85rem;
+            }
+
+            .fee-buttons {
+                flex-direction: column;
+            }
+
+            .fee-buttons .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* ===== Animations ===== */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <!-- ===== 3. Page Hero ===== -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Admissions 2026-27</h1>
+            <div class="breadcrumb">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <span class="separator"><i class="fas fa-chevron-right"></i></span>
+                <span class="current">Admissions</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 4. Admission Steps ===== -->
+    <section class="section" id="admission-steps">
+        <div class="container">
+            <div class="section-title fade-in-up">
+                <h2>How to Get Admitted</h2>
+                <p>Follow these simple steps to begin your journey with Nagachethana PU College</p>
+                <div class="accent-line"></div>
+            </div>
+
+            <div class="steps-grid fade-in-up">
+                <!-- Step 1 -->
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3>Enquire</h3>
+                    <p>Contact us via phone, WhatsApp or online form</p>
+                </div>
+
+                <div class="step-connector">
+                    <div class="line"></div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <i class="fas fa-school"></i>
+                    </div>
+                    <h3>Visit Campus</h3>
+                    <p>Tour our facilities and meet faculty</p>
+                </div>
+
+                <div class="step-connector">
+                    <div class="line"></div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Submit Documents</h3>
+                    <p>Submit required documents and application</p>
+                </div>
+
+                <div class="step-connector">
+                    <div class="line"></div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="step-item">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Confirm Admission</h3>
+                    <p>Complete fee payment and join</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 5. Eligibility Criteria ===== -->
+    <section class="section section-alt" id="eligibility">
+        <div class="container">
+            <div class="section-title fade-in-up">
+                <h2>Eligibility Criteria</h2>
+                <p>Check the requirements for your preferred stream</p>
+                <div class="accent-line"></div>
+            </div>
+
+            <div class="eligibility-table-wrapper fade-in-up">
+                <table class="eligibility-table">
+                    <thead>
+                        <tr>
+                            <th>Criteria</th>
+                            <th><i class="fas fa-flask"></i> Science Stream</th>
+                            <th><i class="fas fa-chart-line"></i> Commerce Stream</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Qualification</td>
+                            <td>SSLC / 10th Pass</td>
+                            <td>SSLC / 10th Pass</td>
+                        </tr>
+                        <tr>
+                            <td>Minimum Marks</td>
+                            <td>60% aggregate</td>
+                            <td>45% aggregate</td>
+                        </tr>
+                        <tr>
+                            <td>Subjects</td>
+                            <td>PCMB / PCMC</td>
+                            <td>BEBA / BSBA</td>
+                        </tr>
+                        <tr>
+                            <td>Medium</td>
+                            <td>English</td>
+                            <td>English</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 6. Online Enquiry Form ===== -->
+    <section class="section enquiry-section" id="enquiry-form">
+        <div class="container">
+            <div class="section-title fade-in-up">
+                <h2>Online Admission Enquiry</h2>
+                <p>Fill in your details and our admission team will get back to you</p>
+                <div class="accent-line"></div>
+            </div>
+
+            <div class="enquiry-form-card fade-in-up">
+                <form id="admissionEnquiryForm" novalidate>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="fullName">Full Name <span class="required">*</span></label>
+                            <input type="text" id="fullName" name="fullName" placeholder="Enter student's full name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number <span class="required">*</span></label>
+                            <input type="tel" id="phone" name="phone" placeholder="e.g., 9876543210" required pattern="[0-9]{10}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="e.g., name@example.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="stream">Stream Interest <span class="required">*</span></label>
+                            <select id="stream" name="stream" required>
+                                <option value="" disabled selected>Select a stream</option>
+                                <option value="Science-PCMB">Science - PCMB</option>
+                                <option value="Science-PCMC">Science - PCMC</option>
+                                <option value="Commerce">Commerce</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="schoolName">10th School Name <span class="required">*</span></label>
+                            <input type="text" id="schoolName" name="schoolName" placeholder="Name of the school where you completed 10th" required>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="message">Message / Query</label>
+                            <textarea id="message" name="message" placeholder="Any questions or additional information you'd like to share..."></textarea>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <button type="submit" class="form-submit-btn">
+                                <i class="fas fa-paper-plane"></i>
+                                Submit Enquiry
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <p class="form-note">
+                    <i class="fas fa-clock"></i>
+                    We'll contact you within 24 hours via phone or WhatsApp.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 7. Fee Overview ===== -->
+    <section class="section" id="fees">
+        <div class="container">
+            <div class="section-title fade-in-up">
+                <h2>Fee Overview</h2>
+                <p>Get detailed fee information from our admissions office</p>
+                <div class="accent-line"></div>
+            </div>
+
+            <div class="fee-card fade-in-up">
+                <div class="fee-icon">
+                    <i class="fas fa-indian-rupee-sign"></i>
+                </div>
+                <p>Fee structure varies by stream. Contact our admission office for detailed fee information. Our team is ready to assist you with all fee-related queries.</p>
+                <div class="fee-buttons">
+                    <a href="https://wa.me/919739085747" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-whatsapp"></i>
+                        WhatsApp Us
+                    </a>
+                    <a href="tel:09739085747" class="btn btn-call">
+                        <i class="fas fa-phone-alt"></i>
+                        Call Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 8. Important Dates ===== -->
+    <section class="section section-alt" id="important-dates">
+        <div class="container">
+            <div class="section-title fade-in-up">
+                <h2>Important Dates</h2>
+                <p>Key dates for the 2026-27 admission cycle</p>
+                <div class="accent-line"></div>
+            </div>
+
+            <div class="dates-timeline fade-in-up">
+                <div class="timeline-item">
+                    <div class="timeline-dot">
+                        <i class="fas fa-pen-to-square"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>Application Start</h4>
+                        <span class="date-badge">March 2026</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot">
+                        <i class="fas fa-building-columns"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>Campus Visits</h4>
+                        <span class="date-badge">March - May 2026</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot">
+                        <i class="fas fa-folder-open"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>Document Submission</h4>
+                        <span class="date-badge">April - June 2026</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>Classes Begin</h4>
+                        <span class="date-badge">June 2026</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 9. Download Prospectus ===== -->
+    <section class="section prospectus-section" id="prospectus">
+        <div class="container">
+            <div class="section-title fade-in-up">
+                <h2>Download Prospectus</h2>
+                <div class="accent-line"></div>
+            </div>
+
+            <div class="prospectus-card fade-in-up">
+                <div class="prospectus-icon">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <p>Get a comprehensive overview of our academic programs, campus facilities, fee structure, and student life. Download the Nagachethana PU College prospectus for all the details you need.</p>
+                <a href="#" class="btn btn-download" download>
+                    <i class="fas fa-download"></i>
+                    Download Prospectus (PDF)
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <!-- Script -->
+    <script src="components.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+        // ===== Form Submission Handler =====
+        const form = document.getElementById('admissionEnquiryForm');
+
+        if (form) {
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const fullName = document.getElementById('fullName').value.trim();
+                const phone = document.getElementById('phone').value.trim();
+                const stream = document.getElementById('stream').value;
+                const schoolName = document.getElementById('schoolName').value.trim();
+
+                if (!fullName || !phone || !stream || !schoolName) {
+                    alert('Please fill in all required fields.');
+                    return;
+                }
+
+                if (!/^[0-9]{10}$/.test(phone)) {
+                    alert('Please enter a valid 10-digit phone number.');
+                    return;
+                }
+
+                const submitBtn = form.querySelector('.form-submit-btn');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fas fa-check"></i> Enquiry Submitted!';
+                submitBtn.style.background = 'linear-gradient(135deg, #2E7D32, #1B5E20)';
+                submitBtn.style.color = '#fff';
+                submitBtn.disabled = true;
+
+                setTimeout(function () {
+                    form.reset();
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.style.background = '';
+                    submitBtn.style.color = '';
+                    submitBtn.disabled = false;
+                }, 3000);
+            });
+        }
+    </script>
+
+</body>
+</html>

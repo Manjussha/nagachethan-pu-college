@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Nagachethana PU College, Bengaluru</title>
+    <meta name="description" content="Learn about Nagachethana PU College, Bengaluru - Empowering Good Education since 2015. Discover our vision, mission, history, and leadership.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css?v=20260302">
+
+    <style>
+        /* ===================== CONTAINER ===================== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===================== PAGE HERO ===================== */
+        .page-hero {
+            background: linear-gradient(135deg, var(--forest-green) 0%, var(--emerald) 50%, #388E3C 100%);
+            padding: 80px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .page-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(249, 168, 37, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .page-hero h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-hero h1 span {
+            color: var(--amber-gold);
+        }
+
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+            position: relative;
+            z-index: 1;
+        }
+
+        .breadcrumb a {
+            color: var(--amber-gold);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--white);
+        }
+
+        .breadcrumb i {
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* ===================== SECTION STYLES ===================== */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header .section-label {
+            display: inline-block;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--emerald);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            background-color: var(--soft-green);
+            padding: 6px 20px;
+            border-radius: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--forest-green);
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            font-size: 1.05rem;
+            color: var(--cool-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .section-divider {
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--amber-gold), var(--emerald));
+            border-radius: 2px;
+            margin: 16px auto 0;
+        }
+
+        /* ===================== VISION & MISSION ===================== */
+        .vision-mission {
+            background-color: var(--soft-green);
+        }
+
+        .vm-grid {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: stretch;
+            gap: 40px;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .vm-card {
+            background-color: var(--white);
+            border-radius: 16px;
+            padding: 48px 36px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(27, 94, 32, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+            max-width: 430px;
+        }
+
+        .vm-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(27, 94, 32, 0.15);
+        }
+
+        .vm-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--forest-green), var(--amber-gold));
+        }
+
+        .vm-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 24px;
+        }
+
+        .vm-card:first-child .vm-icon {
+            background: linear-gradient(135deg, var(--soft-green), rgba(46, 125, 50, 0.15));
+            color: var(--forest-green);
+        }
+
+        .vm-card:last-child .vm-icon {
+            background: linear-gradient(135deg, var(--warm-cream), rgba(249, 168, 37, 0.2));
+            color: var(--amber-gold);
+        }
+
+        .vm-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--forest-green);
+            margin-bottom: 16px;
+        }
+
+        .vm-card p {
+            font-size: 1rem;
+            color: var(--cool-gray);
+            line-height: 1.8;
+        }
+
+        /* ===================== HISTORY TIMELINE ===================== */
+        .history-section {
+            background-color: var(--white);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--forest-green), var(--emerald), var(--amber-gold));
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            width: 50%;
+            padding: 20px 40px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+            padding-right: 60px;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            text-align: left;
+            padding-left: 60px;
+        }
+
+        .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+        .timeline-item:nth-child(2) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.3s; }
+        .timeline-item:nth-child(4) { animation-delay: 0.4s; }
+        .timeline-item:nth-child(5) { animation-delay: 0.5s; }
+        .timeline-item:nth-child(6) { animation-delay: 0.6s; }
+        .timeline-item:nth-child(7) { animation-delay: 0.7s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .timeline-dot {
+            position: absolute;
+            top: 28px;
+            width: 20px;
+            height: 20px;
+            background-color: var(--amber-gold);
+            border: 4px solid var(--white);
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px var(--emerald);
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -10px;
+        }
+
+        .timeline-content {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(46, 125, 50, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-year {
+            display: inline-block;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--white);
+            background: linear-gradient(135deg, var(--forest-green), var(--emerald));
+            padding: 4px 16px;
+            border-radius: 50px;
+            margin-bottom: 12px;
+        }
+
+        .timeline-content h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 8px;
+        }
+
+        .timeline-content p {
+            font-size: 0.9rem;
+            color: var(--cool-gray);
+            line-height: 1.6;
+        }
+
+        /* ===================== LEADERSHIP PROFILES ===================== */
+        .leadership-section {
+            background-color: var(--soft-green);
+        }
+
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .leader-card {
+            background-color: var(--white);
+            border-radius: 16px;
+            padding: 36px 24px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(27, 94, 32, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .leader-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(27, 94, 32, 0.15);
+        }
+
+        .leader-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--amber-gold), var(--emerald));
+        }
+
+        .leader-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--white);
+            position: relative;
+        }
+
+        .leader-card:nth-child(1) .leader-photo {
+            background: linear-gradient(135deg, var(--forest-green), var(--emerald));
+        }
+
+        .leader-card:nth-child(2) .leader-photo {
+            background: linear-gradient(135deg, var(--emerald), #43A047);
+        }
+
+        .leader-card:nth-child(3) .leader-photo {
+            background: linear-gradient(135deg, #388E3C, var(--emerald));
+        }
+
+        .leader-card:nth-child(4) .leader-photo {
+            background: linear-gradient(135deg, var(--amber-gold), #FBC02D);
+        }
+
+        .leader-photo::after {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            border: 3px dashed rgba(46, 125, 50, 0.2);
+        }
+
+        .leader-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--forest-green);
+            margin-bottom: 6px;
+        }
+
+        .leader-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--amber-gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .leader-card p.leader-message {
+            font-size: 0.9rem;
+            color: var(--cool-gray);
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        /* ===================== VALUES & PHILOSOPHY ===================== */
+        .values-section {
+            background-color: var(--white);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .value-card {
+            background-color: var(--white);
+            border: 1px solid rgba(46, 125, 50, 0.1);
+            border-radius: 16px;
+            padding: 36px 28px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-card:hover {
+            border-color: var(--emerald);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 45px rgba(27, 94, 32, 0.12);
+        }
+
+        .value-card:hover .value-icon {
+            transform: scale(1.1);
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 0 auto 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .value-card:nth-child(1) .value-icon {
+            background: linear-gradient(135deg, var(--soft-green), rgba(46, 125, 50, 0.15));
+            color: var(--forest-green);
+        }
+
+        .value-card:nth-child(2) .value-icon {
+            background: linear-gradient(135deg, #FCE4EC, rgba(233, 30, 99, 0.15));
+            color: #C62828;
+        }
+
+        .value-card:nth-child(3) .value-icon {
+            background: linear-gradient(135deg, #E3F2FD, rgba(33, 150, 243, 0.15));
+            color: #1565C0;
+        }
+
+        .value-card:nth-child(4) .value-icon {
+            background: linear-gradient(135deg, var(--warm-cream), rgba(249, 168, 37, 0.2));
+            color: var(--amber-gold);
+        }
+
+        .value-card:nth-child(5) .value-icon {
+            background: linear-gradient(135deg, #FFF3E0, rgba(255, 152, 0, 0.15));
+            color: #E65100;
+        }
+
+        .value-card:nth-child(6) .value-icon {
+            background: linear-gradient(135deg, #F3E5F5, rgba(156, 39, 176, 0.15));
+            color: #7B1FA2;
+        }
+
+        .value-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: 12px;
+        }
+
+        .value-card p {
+            font-size: 0.9rem;
+            color: var(--cool-gray);
+            line-height: 1.7;
+        }
+
+        /* ===================== RESPONSIVE DESIGN ===================== */
+        @media (max-width: 1024px) {
+            .leadership-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-hero h1 {
+                font-size: 2rem;
+            }
+
+            .vm-grid {
+                flex-wrap: wrap;
+                max-width: 500px;
+            }
+            
+            .vm-card {
+                max-width: 100%;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 60px !important;
+                padding-right: 20px !important;
+                text-align: left !important;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-dot {
+                left: 10px !important;
+                right: auto !important;
+            }
+
+            .leadership-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-hero {
+                padding: 60px 0 40px;
+            }
+
+            .page-hero h1 {
+                font-size: 1.6rem;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <!-- ==================== PAGE HERO ==================== -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>About <span>Nagachethana</span> PU College</h1>
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>About Us</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- ==================== VISION & MISSION ==================== -->
+    <section class="section vision-mission" id="vision-mission">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">What Drives Us</span>
+                <h2>Our Vision &amp; Mission</h2>
+                <p>Guided by purpose, committed to excellence in education.</p>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="vm-grid">
+                <!-- Vision Card -->
+                <article class="vm-card">
+                    <div class="vm-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Our Vision</h3>
+                    <p>To be recognized as a premier institution of excellence providing high quality education, research and consultancy services to the society.</p>
+                </article>
+
+                <!-- Mission Card -->
+                <article class="vm-card">
+                    <div class="vm-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Our Mission</h3>
+                    <p>We aim for preparing the best Professionals empowered with competitive knowledge, skill, ethical values and confidence to lead in the fields of Science and Commerce. Providing a stimulating and intellectual campus environment conducive to personality development and confident decision making. Sharpening young talent and helping them discover the true meaning of education for their success.</p>
+                </article>
+            </div>
+        </div> 
+    </section>
+
+    <!-- ==================== OUR HISTORY TIMELINE ==================== -->
+    <section class="section history-section" id="history">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Our Journey</span>
+                <h2>History &amp; Milestones</h2>
+                <p>A decade of dedication to quality education in Yelahanka.</p>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="timeline">
+                <!-- 2015 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2015</span>
+                        <h4>The Foundation</h4>
+                        <p>Founded by Mrs. G. Jayalakshmi with a vision for quality education accessible to all students in the Yelahanka region.</p>
+                    </div>
+                </div>
+
+                <!-- 2016 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2016</span>
+                        <h4>First Batch Enrolled</h4>
+                        <p>First batch of Science &amp; Commerce students enrolled, marking the beginning of a transformative educational journey.</p>
+                    </div>
+                </div>
+
+                <!-- 2018 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2018</span>
+                        <h4>Academic Excellence</h4>
+                        <p>Achieved an outstanding 95%+ pass rate in board examinations, establishing a reputation for academic rigor.</p>
+                    </div>
+                </div>
+
+                <!-- 2020 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2020</span>
+                        <h4>Campus Expansion</h4>
+                        <p>Expanded campus with state-of-the-art science laboratories and a well-stocked library to enhance learning.</p>
+                    </div>
+                </div>
+
+                <!-- 2022 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2022</span>
+                        <h4>Growing Community</h4>
+                        <p>Crossed the 500+ student strength milestone, reflecting the trust and confidence of the community.</p>
+                    </div>
+                </div>
+
+                <!-- 2024 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2024</span>
+                        <h4>Regional Recognition</h4>
+                        <p>Recognized for academic excellence in the Yelahanka region, becoming a preferred choice for PUC education.</p>
+                    </div>
+                </div>
+
+                <!-- 2026 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-year">2026</span>
+                        <h4>Continuing to Grow</h4>
+                        <p>Continuing to grow with 1000+ students, nurturing the next generation of leaders and achievers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== LEADERSHIP PROFILES ==================== -->
+    <section class="section leadership-section" id="leadership">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Our Leadership</span>
+                <h2>Meet the Team Behind Our Success</h2>
+                <p>Dedicated leaders committed to shaping the future of education.</p>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="leadership-grid">
+                <!-- Founder -->
+                <article class="leader-card">
+                    <div class="leader-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Mrs. G. Jayalakshmi</h3>
+                    <div class="leader-title">Founder</div>
+                    <p class="leader-message">"The dream of establishing a college for imparting quality education materialized in 2015 when Nagachethana PU College was established. Undaunted by challenges and impediments, forging ahead with determination, we have taken the institution to great heights."</p>
+                </article>
+
+                <!-- President -->
+                <article class="leader-card">
+                    <div class="leader-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>G. Naveen Kumar</h3>
+                    <div class="leader-title">President</div>
+                    <p class="leader-message">"Institutions need to be student-centered. Their existence is to shape the Nation's young ones physically and spiritually. A Nation's future can be shaped only through shaping the young ones. In our College, students are treated as the nation's future hence all possible efforts are made to see that they get necessary training and guidance."</p>
+                </article>
+
+                <!-- Secretary -->
+                <article class="leader-card">
+                    <div class="leader-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Muniyappa P</h3>
+                    <div class="leader-title">Secretary</div>
+                    <p class="leader-message">"The vision of the institution is to provide knowledge and skills with a holistic approach. The whole idea is to provide education that creates leaders in all walks of life, as there may not be place for mediocrity but there is definitely place for excellence."</p>
+                </article>
+
+                <!-- Principal -->
+                <article class="leader-card">
+                    <div class="leader-photo">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Deepak J</h3>
+                    <div class="leader-title">Principal</div>
+                    <p class="leader-message">"Our thinking inspires our action, our actions turn into habit, habit decides attitude and attitude decides destiny. At Nagachethana PU College, we strongly believe that quality education fosters the right kind of thinking in students, building strong character and ethical conduct."</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== VALUES & PHILOSOPHY ==================== -->
+    <section class="section values-section" id="values">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">What We Stand For</span>
+                <h2>Our Values &amp; Philosophy</h2>
+                <p>The principles that guide our approach to education and student development.</p>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="values-grid">
+                <!-- Quality Education -->
+                <article class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Quality Education</h3>
+                    <p>Delivering comprehensive, up-to-date curriculum with experienced faculty dedicated to academic excellence and student success.</p>
+                </article>
+
+                <!-- Character Building -->
+                <article class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Character Building</h3>
+                    <p>Instilling strong moral values, discipline, and integrity to shape students into responsible and ethical individuals.</p>
+                </article>
+
+                <!-- Holistic Development -->
+                <article class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Holistic Development</h3>
+                    <p>Fostering intellectual, physical, emotional, and social growth through a well-rounded educational experience.</p>
+                </article>
+
+                <!-- Ethical Conduct -->
+                <article class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Ethical Conduct</h3>
+                    <p>Promoting honesty, fairness, and respect in all interactions, building a foundation of trust within the community.</p>
+                </article>
+
+                <!-- Innovation -->
+                <article class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Innovation</h3>
+                    <p>Embracing modern teaching methods and technology to create engaging, effective, and future-ready learning experiences.</p>
+                </article>
+
+                <!-- Community Service -->
+                <article class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Community Service</h3>
+                    <p>Encouraging students to give back to society through service, building empathy and a sense of social responsibility.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <!-- Script -->
+    <script src="components.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
