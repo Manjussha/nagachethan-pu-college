@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <link rel="icon" type="image/jpeg" href="logo.jpg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Nagachethana PU College Blog - Latest news, updates, events and articles from our college in Yelahanka, Bengaluru.">
+    <meta name="description" content="Stay updated with latest news, events, exam results and college updates from Nagachethana PU College, Yelahanka, Bengaluru. Science & Commerce PUC insights.">
+    <meta name="author" content="Nagachethana PU College">
+    <meta name="geo.region" content="IN-KA">
+    <meta name="geo.placename" content="Yelahanka, Bengaluru, Karnataka">
+    <meta name="geo.position" content="13.1007;77.5963">
+    <meta name="ICBM" content="13.1007, 77.5963">
     <meta name="keywords" content="Nagachethana PU College blog, college news Yelahanka, PU college updates Bengaluru">
     <title>Blog | Nagachethana PU College Yelahanka Bengaluru</title>
 
@@ -23,6 +28,26 @@
 
     <!-- Canonical -->
     <link rel="canonical" href="https://nagachethanapucollege.in/blog.html">
+
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Nagachethana PU College Blog",
+      "description": "Latest news, updates, events and articles from Nagachethana PU College, Yelahanka, Bengaluru.",
+      "url": "https://nagachethanapucollege.in/blog.html",
+      "publisher": {
+        "@type": "EducationalOrganization",
+        "name": "Nagachethana PU College",
+        "url": "https://nagachethanapucollege.in",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://nagachethanapucollege.in/logo.jpg"
+        }
+      }
+    }
+    </script>
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Nagachethana PU College">
     <meta property="og:title" content="Blog | Nagachethana PU College">
@@ -33,6 +58,10 @@
     <meta name="twitter:title" content="Blog | Nagachethana PU College">
     <meta name="twitter:description" content="Latest news, updates and events from Nagachethana PU College, Yelahanka, Bengaluru.">
     <meta name="twitter:image" content="https://nagachethanapucollege.in/logo.jpg">
+    <meta property="og:locale" content="en_IN">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nagachethanapucollege.in/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://nagachethanapucollege.in/blog.html"}]}
+    </script>
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J5BYY5KNC9"></script>
@@ -89,19 +118,43 @@
 
         .blog-card__image {
             width: 100%;
-            height: 200px;
-            object-fit: cover;
-            background: linear-gradient(135deg, var(--color-navy) 0%, #1a3a6b 100%);
+            height: 210px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #fff;
-            font-size: 3.5rem;
+            overflow: hidden;
+            position: relative;
         }
         .blog-card__image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+        .blog-card:hover .blog-card__image img {
+            transform: scale(1.05);
+        }
+        .blog-card__image-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            color: rgba(255,255,255,0.9);
+        }
+        .blog-card__image-placeholder i {
+            font-size: 3.2rem;
+            opacity: 0.95;
+        }
+        .blog-card__image-placeholder span {
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.8;
         }
 
         .blog-card__body {
@@ -200,9 +253,9 @@
 
     <div id="footer-placeholder"></div>
 
-    <script src="components.min.js" defer></script>
+    <script src="components.min.js?v=20260307" defer></script>
     <script>
-        fetch('/blog-api.php')
+        fetch('posts.json')
             .then(function(r) { return r.json(); })
             .then(function(posts) {
                 var grid = document.getElementById('blogGrid');
@@ -211,24 +264,28 @@
                     return;
                 }
                 grid.innerHTML = posts.map(function(post) {
+                    var color = post.color || '#1B5E20';
+                    var icon = post.icon || 'fa-graduation-cap';
+                    var webpSrc = post.image ? post.image.replace(/\.(jpe?g|png)$/i, '.webp') : null;
                     var imgHtml = post.image
-                        ? '<img src="' + post.image + '" alt="' + post.title + '" loading="lazy">'
-                        : '<i class="fas fa-graduation-cap"></i>';
-                    return '<div class="blog-card">' +
-                        '<div class="blog-card__image">' + imgHtml + '</div>' +
+                        ? '<picture><source srcset="' + webpSrc + '" type="image/webp"><img src="' + post.image + '" alt="' + post.title + '" loading="lazy" width="400" height="210"></picture>'
+                        : '<div class="blog-card__image-placeholder"><i class="fas ' + icon + '"></i><span>Nagachethana PUC</span></div>';
+                    var imgStyle = post.image ? '' : ' style="background:linear-gradient(135deg,' + color + ' 0%,' + color + 'cc 100%)"';
+                    return '<a href="' + post.link + '" class="blog-card" style="text-decoration:none;color:inherit;">' +
+                        '<div class="blog-card__image"' + imgStyle + '>' + imgHtml + '</div>' +
                         '<div class="blog-card__body">' +
                             '<div class="blog-card__date"><i class="fas fa-calendar-alt"></i> ' + post.date + '</div>' +
                             '<h2 class="blog-card__title">' + post.title + '</h2>' +
                             '<p class="blog-card__excerpt">' + post.excerpt + '</p>' +
-                            '<a href="' + post.link + '" class="blog-card__link" target="_blank" rel="noopener">Read More <i class="fas fa-arrow-right"></i></a>' +
+                            '<span class="blog-card__link">Read More <i class="fas fa-arrow-right"></i></span>' +
                         '</div>' +
-                    '</div>';
+                    '</a>';
                 }).join('');
             })
             .catch(function() {
                 document.getElementById('blogGrid').innerHTML = '<div class="blog-empty" style="grid-column:1/-1;"><i class="fas fa-exclamation-circle"></i><p>Could not load posts. Please try again later.</p></div>';
             });
     </script>
-    <script src="script.min.js" defer></script>
+    <script src="script.min.js?v=20260307" defer></script>
 </body>
 </html>

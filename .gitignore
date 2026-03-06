@@ -7,3 +7,20 @@ api_request.json
 openclaw_config.json
 aug2025.txt
 .claude/
+
+# Service account keys - NEVER commit
+nagachethana-*.json
+
+# Dev/analytics scripts
+_analytics_report.js
+_search_console_report.js
+
+# AI agent folders
+.agent/
+.agents/
+.qwen/
+
+# Package files
+package.json
+package-lock.json
+skills-lock.json

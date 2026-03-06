@@ -16,6 +16,11 @@ Options -Indexes
     RewriteCond %{HTTP_HOST} ^www\.nagachethanapucollege\.in [NC]
     RewriteRule ^(.*)$ https://nagachethanapucollege.in/$1 [L,R=301]
 
+    # Serve WebP instead of JPG/PNG when browser supports it and .webp file exists
+    RewriteCond %{HTTP_ACCEPT} image/webp
+    RewriteCond %{DOCUMENT_ROOT}/$1.webp -f
+    RewriteRule ^(.+)\.(jpe?g|png)$ $1.webp [T=image/webp,L]
+
     # Custom 404
     ErrorDocument 404 /404.html
 </IfModule>

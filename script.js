@@ -303,45 +303,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    /* ---- 11. Floating WhatsApp Button ---- */
-    function createWhatsAppButton() {
-        if (document.querySelector('.whatsapp-float')) return;
-
-        var whatsappBtn = document.createElement('a');
-        whatsappBtn.href = 'https://wa.me/919739085747?text=' +
-            encodeURIComponent('Hello! I would like to enquire about admissions at Nagachethana PU College.');
-        whatsappBtn.target = '_blank';
-        whatsappBtn.rel = 'noopener noreferrer';
-        whatsappBtn.classList.add('whatsapp-float');
-        whatsappBtn.setAttribute('aria-label', 'Chat on WhatsApp');
-        whatsappBtn.title = 'Chat with us on WhatsApp';
-
-        whatsappBtn.innerHTML =
-            '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="36" height="36" fill="#fff">' +
-            '<path d="M16.004 0C7.165 0 .003 7.16.003 15.997c0 2.82.737 5.573 2.14 7.998L0 32l8.25-2.1a15.95 15.95 0 007.754 1.977h.006C24.84 31.877 32 24.72 32 15.88 32 7.16 24.843 0 16.004 0zm0 29.297a13.36 13.36 0 01-6.82-1.87l-.488-.29-5.065 1.328 1.35-4.936-.318-.505A13.3 13.3 0 012.59 15.997c0-7.397 6.02-13.415 13.42-13.415 7.397 0 13.41 6.018 13.41 13.415 0 7.4-6.02 13.3-13.416 13.3zm7.35-10.04c-.403-.2-2.383-1.175-2.752-1.31-.37-.133-.64-.2-.908.2-.27.4-1.044 1.31-1.28 1.58-.236.27-.47.3-.873.1-.403-.2-1.7-.626-3.24-1.997-1.197-1.067-2.004-2.385-2.24-2.787-.235-.403-.025-.62.177-.82.182-.18.403-.47.605-.706.2-.236.267-.403.4-.672.134-.27.067-.505-.033-.706-.1-.2-.908-2.187-1.244-2.993-.328-.787-.66-.68-.908-.693l-.774-.013c-.27 0-.706.1-1.076.504-.37.403-1.414 1.38-1.414 3.366 0 1.987 1.448 3.907 1.65 4.177.2.27 2.85 4.348 6.905 6.097.964.416 1.717.665 2.303.852.968.308 1.85.265 2.546.16.777-.116 2.384-.975 2.72-1.916.336-.94.336-1.747.236-1.916-.1-.168-.37-.268-.773-.47z"/>' +
-            '</svg>';
-
-        // Style the button
-        whatsappBtn.style.cssText =
-            'position:fixed;bottom:30px;left:30px;width:56px;height:56px;background:#25D366;' +
-            'border-radius:50%;display:flex;align-items:center;justify-content:center;' +
-            'box-shadow:0 4px 12px rgba(0,0,0,0.25);z-index:998;transition:all 0.3s ease;';
-
-        whatsappBtn.addEventListener('mouseenter', function () {
-            this.style.transform = 'scale(1.1)';
-            this.style.boxShadow = '0 6px 20px rgba(37,211,102,0.5)';
-        });
-        whatsappBtn.addEventListener('mouseleave', function () {
-            this.style.transform = 'scale(1)';
-            this.style.boxShadow = '0 4px 12px rgba(0,0,0,0.25)';
-        });
-
-        document.body.appendChild(whatsappBtn);
-    }
-
-    createWhatsAppButton();
-
-
     /* ---- 12. Form Validation (for contact/admission pages) ---- */
     var forms = document.querySelectorAll(
         '.admission-form, .contact-form, #admissionForm, #contactForm'
