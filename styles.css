@@ -13,9 +13,8 @@
    ============================================================ */
 
 /* ----------------------------------------------------------
-   0. Google Fonts Import
+   0. Google Fonts – loaded via <link> in HTML for faster render
    ---------------------------------------------------------- */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
 
 /* ----------------------------------------------------------
    1. CSS Custom Properties
