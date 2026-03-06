@@ -107,9 +107,6 @@ html {
   scroll-padding-top: calc(var(--header-height) + 20px);
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
-}
-
-html {
   overflow-x: hidden;
 }
 
@@ -4176,5 +4173,22 @@ p:last-child {
   .stagger-children > * {
     opacity: 1;
     transform: none;
+  }
+}
+
+/* ============================================================
+   PERFORMANCE: Content-visibility for below-fold sections
+   ============================================================ */
+@media (max-width: 768px) {
+  .why-choose-us,
+  .streams,
+  .achievements-bar,
+  .testimonials {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 400px;
+  }
+
+  .hero {
+    min-height: 420px;
   }
 }
