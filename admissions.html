@@ -1430,26 +1430,29 @@
 
     <!-- Google Sheets Integration -->
     <script>
-    const SHEET_URL = 'https://script.google.com/macros/s/AKfycbzxM0oeg-hhjL5PX4Kt-80lZOcnfjC-tL9--JfYTiGAvDvJgbed6lGAvls27AIksFJSPw/exec';
-    document.addEventListener('componentsLoaded', function() {
-        const form = document.getElementById('admissionEnquiryForm');
-        if (!form) return;
+    var SHEET_URL = 'https://script.google.com/macros/s/AKfycbwn6j_HOy2jaf6wfH3ow6DyXhQBD7mLFMTuGWkPpSaJHJA_IlLN4OiiG2PraVwEO812Ng/exec';
+    function sendToSheet(data) {
+        var img = new Image();
+        img.src = SHEET_URL + '?data=' + encodeURIComponent(JSON.stringify(data));
+    }
+    function bindAdmissionSheet() {
+        var form = document.getElementById('admissionEnquiryForm');
+        if (!form || form._sheetBound) return;
+        form._sheetBound = true;
         form.addEventListener('submit', function() {
-            const data = {
+            sendToSheet({
                 form: 'Admissions Form',
-                fullName: form.fullName ? form.fullName.value : '',
-                phone: form.phone ? form.phone.value : '',
-                email: form.email ? form.email.value : '',
-                stream: form.stream ? form.stream.value : '',
-                schoolName: form.schoolName ? form.schoolName.value : '',
-                message: form.message ? form.message.value : ''
-            };
-            fetch(SHEET_URL, {
-                method: 'POST',
-                body: JSON.stringify(data)
-            }).catch(function(){});
+                fullName: (document.getElementById('fullName') || {}).value || '',
+                phone: (document.getElementById('phone') || {}).value || '',
+                email: (document.getElementById('email') || {}).value || '',
+                stream: (document.getElementById('stream') || {}).value || '',
+                schoolName: (document.getElementById('schoolName') || {}).value || '',
+                message: (document.getElementById('message') || {}).value || ''
+            });
         });
-    });
+    }
+    document.addEventListener('componentsLoaded', bindAdmissionSheet);
+    document.addEventListener('DOMContentLoaded', bindAdmissionSheet);
     </script>
 
 </body>
