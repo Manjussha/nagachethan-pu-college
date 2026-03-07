@@ -1,3 +1,35 @@
+/* Font metric overrides: make system fallbacks match web font metrics to reduce CLS on font swap */
+@font-face {
+  font-family: 'Inter-Fallback';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Arial');
+  ascent-override: 90%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+  size-adjust: 107%;
+}
+@font-face {
+  font-family: 'Poppins-Fallback';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Arial');
+  ascent-override: 105%;
+  descent-override: 35%;
+  line-gap-override: 0%;
+  size-adjust: 112%;
+}
+@font-face {
+  font-family: 'Poppins-Fallback';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Arial Bold');
+  ascent-override: 105%;
+  descent-override: 35%;
+  line-gap-override: 0%;
+  size-adjust: 112%;
+}
+
 /* ============================================================
    Nagachethana PU College - Master Stylesheet
    Color Palette:
@@ -45,8 +77,8 @@
   --color-overlay: rgba(27, 94, 32, 0.80);
 
   /* Typography */
-  --font-heading: 'Poppins', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --font-heading: 'Poppins', 'Poppins-Fallback', sans-serif;
+  --font-body: 'Inter', 'Inter-Fallback', sans-serif;
 
   /* Spacing */
   --section-py: 80px;
