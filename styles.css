@@ -230,6 +230,9 @@ p:last-child {
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--color-accent);
+  background-color: var(--color-primary);
+  padding: 4px 14px;
+  border-radius: 20px;
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 10px;
@@ -3816,6 +3819,35 @@ p:last-child {
     justify-content: center;
     flex-wrap: wrap;
     gap: 16px;
+  }
+
+  /* Mobile touch targets (min 48px) */
+  .footer__social-link {
+    width: 48px;
+    height: 48px;
+  }
+
+  .footer__link {
+    min-height: 44px;
+    align-items: center;
+  }
+
+  .footer__bottom-links a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 4px;
+  }
+
+  .footer__contact a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .testimonials__btn {
+    width: 48px;
+    height: 48px;
   }
 
   /* Vision Mission */
