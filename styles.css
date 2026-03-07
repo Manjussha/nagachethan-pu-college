@@ -41,7 +41,7 @@
   --color-accent-dark: #E68A00;
   --color-accent-light: #FDD835;
   --color-border: #E0E0E0;
-  --color-light-gray: #9E9E9E;
+  --color-light-gray: #767676;
   --color-overlay: rgba(27, 94, 32, 0.80);
 
   /* Typography */
@@ -432,14 +432,19 @@ p:last-child {
 
 .announcement-bar__close {
   position: absolute;
-  right: 20px;
+  right: 8px;
   top: 50%;
   transform: translateY(-50%);
   color: var(--color-white);
   font-size: 0.9rem;
-  padding: 4px 8px;
+  padding: 12px 14px;
+  min-width: 48px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: var(--radius-sm);
-  opacity: 0.7;
+  opacity: 1;
   transition: opacity var(--transition-fast);
 }
 
