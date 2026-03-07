@@ -1428,5 +1428,29 @@
         }
     </script>
 
+    <!-- Google Sheets Integration -->
+    <script>
+    const SHEET_URL = 'https://script.google.com/macros/s/AKfycbzxM0oeg-hhjL5PX4Kt-80lZOcnfjC-tL9--JfYTiGAvDvJgbed6lGAvls27AIksFJSPw/exec';
+    document.addEventListener('componentsLoaded', function() {
+        const form = document.getElementById('admissionEnquiryForm');
+        if (!form) return;
+        form.addEventListener('submit', function() {
+            const data = {
+                form: 'Admissions Form',
+                fullName: form.fullName ? form.fullName.value : '',
+                phone: form.phone ? form.phone.value : '',
+                email: form.email ? form.email.value : '',
+                stream: form.stream ? form.stream.value : '',
+                schoolName: form.schoolName ? form.schoolName.value : '',
+                message: form.message ? form.message.value : ''
+            };
+            fetch(SHEET_URL, {
+                method: 'POST',
+                body: JSON.stringify(data)
+            }).catch(function(){});
+        });
+    });
+    </script>
+
 </body>
 </html>

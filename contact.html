@@ -1036,5 +1036,28 @@
     <!-- Script -->
     <script src="components.min.js?v=20260308" defer></script>
     <script src="script.min.js?v=20260308" defer></script>
+
+    <!-- Google Sheets Integration -->
+    <script>
+    const SHEET_URL = 'https://script.google.com/macros/s/AKfycbzxM0oeg-hhjL5PX4Kt-80lZOcnfjC-tL9--JfYTiGAvDvJgbed6lGAvls27AIksFJSPw/exec';
+    document.addEventListener('componentsLoaded', function() {
+        const form = document.getElementById('contactForm');
+        if (!form) return;
+        form.addEventListener('submit', function() {
+            const data = {
+                form: 'Contact Form',
+                fullName: form.fullName ? form.fullName.value : '',
+                email: form.email ? form.email.value : '',
+                phone: form.phone ? form.phone.value : '',
+                subject: form.subject ? form.subject.value : '',
+                message: form.message ? form.message.value : ''
+            };
+            fetch(SHEET_URL, {
+                method: 'POST',
+                body: JSON.stringify(data)
+            }).catch(function(){});
+        });
+    });
+    </script>
 </body>
 </html>
