@@ -416,6 +416,7 @@ p:last-child {
 .announcement-bar__text i {
   color: var(--color-accent);
   animation: announcePulse 2s infinite;
+  will-change: opacity;
 }
 
 .announcement-bar__link {
@@ -451,6 +452,7 @@ p:last-child {
   display: flex;
   animation: marquee 25s linear infinite;
   gap: 4rem;
+  will-change: transform;
 }
 
 @keyframes marquee {
@@ -3236,6 +3238,7 @@ p:last-child {
   border: 2px solid #25D366;
   animation: whatsappPulse 2s ease-out infinite;
   pointer-events: none;
+  will-change: transform, opacity;
 }
 
 @keyframes whatsappPulse {
