@@ -407,6 +407,56 @@
             color: #1B5E20;
         }
 
+        /* Latest Exam Results Grid */
+        .results-images-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .results-image-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .results-image-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .results-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
+            background: #f5f5f5;
+        }
+
+        .results-image__label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(27, 94, 32, 0.9));
+            color: #FFFFFF;
+            padding: 15px;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .results-images-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
         /* ============================================
            AWARDS & RECOGNITIONS
         ============================================= */
@@ -965,7 +1015,30 @@
     </section>
 
     <!-- ============================================
-         SECTION 6: YEAR-WISE RESULTS
+         SECTION 6: LATEST EXAM RESULTS
+    ============================================= -->
+    <section class="achieve-section" id="latestResults">
+        <div class="container">
+            <div class="achieve-section__header">
+                <span class="achieve-section__label">Recent Achievement</span>
+                <h2 class="achieve-section__title">II PU Exam-1 Results 2025-26</h2>
+                <p class="achieve-section__subtitle">Congratulations to all our toppers and achievers in the latest examination.</p>
+            </div>
+            <div class="results-images-grid">
+                <div class="results-image-item">
+                    <img src="pg-1 EXAM -1 RESULT 2025.JPG" alt="II PU Exam-1 Results 2025-26 - Page 1" loading="lazy" class="results-image">
+                    <p class="results-image__label">Toppers List - Part 1</p>
+                </div>
+                <div class="results-image-item">
+                    <img src="pg-2 EXAM-1 RESULT 2025.JPG" alt="II PU Exam-1 Results 2025-26 - Page 2" loading="lazy" class="results-image">
+                    <p class="results-image__label">Toppers List - Part 2</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 7: YEAR-WISE RESULTS
     ============================================= -->
     <section class="achieve-section achieve-section--cream" id="yearwiseResults">
         <div class="container">
