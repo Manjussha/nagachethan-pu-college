@@ -21,6 +21,15 @@ Options -Indexes
     RewriteCond %{DOCUMENT_ROOT}/$1.webp -f
     RewriteRule ^(.+)\.(jpe?g|png)$ $1.webp [T=image/webp,L]
 
+    # Remove index.html from URLs
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.html [L]
+
+    # Redirect /index.html to /
+    RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP
+    RewriteRule ^index\.html$ / [R=301,L]
+
     # Custom 404
     ErrorDocument 404 /404.html
 </IfModule>
