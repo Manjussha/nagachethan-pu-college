@@ -184,6 +184,15 @@
             cursor: pointer;
             min-height: 250px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background: #f0f0f0;
+        }
+
+        .gallery-item__image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
         }
 
         .gallery-item:hover {
@@ -699,49 +708,63 @@
             <div class="gallery-grid" id="galleryGrid">
 
                 <!-- Campus Items -->
-                <div class="gallery-item gallery-item--gradient-1 gallery-item--tall show" data-category="campus">
-                    <div class="gallery-item__placeholder">
-                        <i class="fas fa-building"></i>
-                    </div>
+                <div class="gallery-item gallery-item--tall show" data-category="campus" data-image="GROUND IMAGE.jpg">
+                    <img class="gallery-item__image" src="GROUND IMAGE.jpg" alt="College Grounds" loading="lazy">
                     <div class="gallery-item__zoom">
                         <i class="fas fa-search-plus"></i>
                     </div>
                     <div class="gallery-item__overlay">
-                        <p class="gallery-item__caption">College Building</p>
+                        <p class="gallery-item__caption">College Grounds</p>
                         <p class="gallery-item__category">Campus</p>
                     </div>
                 </div>
 
-                <div class="gallery-item gallery-item--gradient-2 show" data-category="campus">
-                    <div class="gallery-item__placeholder">
-                        <i class="fas fa-chalkboard"></i>
-                    </div>
+                <div class="gallery-item show" data-category="campus" data-image="Ground-2.jpg">
+                    <img class="gallery-item__image" src="Ground-2.jpg" alt="Campus Entrance" loading="lazy">
                     <div class="gallery-item__zoom">
                         <i class="fas fa-search-plus"></i>
                     </div>
                     <div class="gallery-item__overlay">
-                        <p class="gallery-item__caption">Classroom</p>
+                        <p class="gallery-item__caption">Campus Entrance</p>
                         <p class="gallery-item__category">Campus</p>
                     </div>
                 </div>
 
-                <div class="gallery-item gallery-item--gradient-3 show" data-category="campus">
-                    <div class="gallery-item__placeholder">
-                        <i class="fas fa-book-open"></i>
-                    </div>
+                <div class="gallery-item show" data-category="campus" data-image="cls room.jpg">
+                    <img class="gallery-item__image" src="cls room.jpg" alt="Classroom Setup" loading="lazy">
                     <div class="gallery-item__zoom">
                         <i class="fas fa-search-plus"></i>
                     </div>
                     <div class="gallery-item__overlay">
-                        <p class="gallery-item__caption">Library</p>
+                        <p class="gallery-item__caption">Classroom Setup</p>
                         <p class="gallery-item__category">Campus</p>
                     </div>
                 </div>
 
-                <div class="gallery-item gallery-item--gradient-4 show" data-category="campus">
-                    <div class="gallery-item__placeholder">
-                        <i class="fas fa-laptop"></i>
+                <div class="gallery-item show" data-category="campus" data-image="cls room 2.jpg">
+                    <img class="gallery-item__image" src="cls room 2.jpg" alt="Modern Classroom" loading="lazy">
+                    <div class="gallery-item__zoom">
+                        <i class="fas fa-search-plus"></i>
                     </div>
+                    <div class="gallery-item__overlay">
+                        <p class="gallery-item__caption">Modern Classroom</p>
+                        <p class="gallery-item__category">Campus</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item show" data-category="campus" data-image="class room.jpg">
+                    <img class="gallery-item__image" src="class room.jpg" alt="Learning Space" loading="lazy">
+                    <div class="gallery-item__zoom">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                    <div class="gallery-item__overlay">
+                        <p class="gallery-item__caption">Learning Space</p>
+                        <p class="gallery-item__category">Campus</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item gallery-item--tall show" data-category="campus" data-image="cs lab.jpg">
+                    <img class="gallery-item__image" src="cs lab.jpg" alt="Computer Lab" loading="lazy">
                     <div class="gallery-item__zoom">
                         <i class="fas fa-search-plus"></i>
                     </div>
@@ -751,110 +774,124 @@
                     </div>
                 </div>
 
-                <!-- Events Items -->
-                <div class="gallery-item gallery-item--gradient-5 show" data-category="events">
-                    <div class="gallery-item__placeholder">
-                        <i class="fas fa-star"></i>
-                    </div>
+                <div class="gallery-item show" data-category="campus" data-image="IMG_4068.jpg">
+                    <img class="gallery-item__image" src="IMG_4068.jpg" alt="Campus Infrastructure" loading="lazy">
                     <div class="gallery-item__zoom">
                         <i class="fas fa-search-plus"></i>
                     </div>
                     <div class="gallery-item__overlay">
-                        <p class="gallery-item__caption">Annual Day 2025</p>
-                        <p class="gallery-item__category">Events</p>
+                        <p class="gallery-item__caption">Campus Infrastructure</p>
+                        <p class="gallery-item__category">Campus</p>
                     </div>
                 </div>
 
-                <div class="gallery-item gallery-item--gradient-6 gallery-item--tall show" data-category="events">
-                    <div class="gallery-item__placeholder">
-                        <i class="fas fa-flask"></i>
-                    </div>
+                <div class="gallery-item show" data-category="campus" data-image="IMG_4070.jpg">
+                    <img class="gallery-item__image" src="IMG_4070.jpg" alt="College Facilities" loading="lazy">
                     <div class="gallery-item__zoom">
                         <i class="fas fa-search-plus"></i>
                     </div>
                     <div class="gallery-item__overlay">
-                        <p class="gallery-item__caption">Science Exhibition</p>
-                        <p class="gallery-item__category">Events</p>
+                        <p class="gallery-item__caption">College Facilities</p>
+                        <p class="gallery-item__category">Campus</p>
                     </div>
                 </div>
 
-                <div class="gallery-item gallery-item--gradient-7 show" data-category="events">
-                    <div class="gallery-item__placeholder">
-                        <i class="fas fa-microphone"></i>
-                    </div>
+                <div class="gallery-item show" data-category="campus" data-image="IMG_4071.PNG.jpg">
+                    <img class="gallery-item__image" src="IMG_4071.PNG.jpg" alt="Campus View" loading="lazy">
                     <div class="gallery-item__zoom">
                         <i class="fas fa-search-plus"></i>
                     </div>
                     <div class="gallery-item__overlay">
-                        <p class="gallery-item__caption">Guest Lecture</p>
-                        <p class="gallery-item__category">Events</p>
+                        <p class="gallery-item__caption">Campus View</p>
+                        <p class="gallery-item__category">Campus</p>
                     </div>
                 </div>
 
-                <!-- Sports Items -->
-                <div class="gallery-item gallery-item--gradient-8 show" data-category="sports">
-                    <div class="gallery-item__placeholder">
-                        <i class="fas fa-running"></i>
-                    </div>
+                <div class="gallery-item show" data-category="campus" data-image="IMG_4072.PNG.jpg">
+                    <img class="gallery-item__image" src="IMG_4072.PNG.jpg" alt="Building Architecture" loading="lazy">
                     <div class="gallery-item__zoom">
                         <i class="fas fa-search-plus"></i>
                     </div>
                     <div class="gallery-item__overlay">
-                        <p class="gallery-item__caption">Sports Day</p>
-                        <p class="gallery-item__category">Sports</p>
+                        <p class="gallery-item__caption">Building Architecture</p>
+                        <p class="gallery-item__category">Campus</p>
                     </div>
                 </div>
 
-                <div class="gallery-item gallery-item--gradient-9 show" data-category="sports">
-                    <div class="gallery-item__placeholder">
-                        <i class="fas fa-baseball-ball"></i>
-                    </div>
+                <div class="gallery-item show" data-category="campus" data-image="IMG_4073.PNG.jpg">
+                    <img class="gallery-item__image" src="IMG_4073.PNG.jpg" alt="Indoor Facility" loading="lazy">
                     <div class="gallery-item__zoom">
                         <i class="fas fa-search-plus"></i>
                     </div>
                     <div class="gallery-item__overlay">
-                        <p class="gallery-item__caption">Cricket Tournament</p>
-                        <p class="gallery-item__category">Sports</p>
+                        <p class="gallery-item__caption">Indoor Facility</p>
+                        <p class="gallery-item__category">Campus</p>
                     </div>
                 </div>
 
-                <div class="gallery-item gallery-item--gradient-10 show" data-category="sports">
-                    <div class="gallery-item__placeholder">
-                        <i class="fas fa-medal"></i>
-                    </div>
+                <div class="gallery-item show" data-category="campus" data-image="IMG_4074.PNG.jpg">
+                    <img class="gallery-item__image" src="IMG_4074.PNG.jpg" alt="Campus Area" loading="lazy">
                     <div class="gallery-item__zoom">
                         <i class="fas fa-search-plus"></i>
                     </div>
                     <div class="gallery-item__overlay">
-                        <p class="gallery-item__caption">Athletics Meet</p>
-                        <p class="gallery-item__category">Sports</p>
+                        <p class="gallery-item__caption">Campus Area</p>
+                        <p class="gallery-item__category">Campus</p>
                     </div>
                 </div>
 
-                <!-- Cultural Items -->
-                <div class="gallery-item gallery-item--gradient-11 show" data-category="cultural">
-                    <div class="gallery-item__placeholder">
-                        <i class="fas fa-theater-masks"></i>
-                    </div>
+                <div class="gallery-item show" data-category="campus" data-image="IMG_4075.PNG.jpg">
+                    <img class="gallery-item__image" src="IMG_4075.PNG.jpg" alt="Classroom Interior" loading="lazy">
                     <div class="gallery-item__zoom">
                         <i class="fas fa-search-plus"></i>
                     </div>
                     <div class="gallery-item__overlay">
-                        <p class="gallery-item__caption">Cultural Fest</p>
-                        <p class="gallery-item__category">Cultural</p>
+                        <p class="gallery-item__caption">Classroom Interior</p>
+                        <p class="gallery-item__category">Campus</p>
                     </div>
                 </div>
 
-                <div class="gallery-item gallery-item--gradient-12 show" data-category="cultural">
-                    <div class="gallery-item__placeholder">
-                        <i class="fas fa-music"></i>
-                    </div>
+                <div class="gallery-item show" data-category="campus" data-image="IMG_4076.PNG.jpg">
+                    <img class="gallery-item__image" src="IMG_4076.PNG.jpg" alt="Study Area" loading="lazy">
                     <div class="gallery-item__zoom">
                         <i class="fas fa-search-plus"></i>
                     </div>
                     <div class="gallery-item__overlay">
-                        <p class="gallery-item__caption">Dance Performance</p>
-                        <p class="gallery-item__category">Cultural</p>
+                        <p class="gallery-item__caption">Study Area</p>
+                        <p class="gallery-item__category">Campus</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item show" data-category="campus" data-image="IMG_4077.PNG.jpg">
+                    <img class="gallery-item__image" src="IMG_4077.PNG.jpg" alt="College Building" loading="lazy">
+                    <div class="gallery-item__zoom">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                    <div class="gallery-item__overlay">
+                        <p class="gallery-item__caption">College Building</p>
+                        <p class="gallery-item__category">Campus</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item show" data-category="campus" data-image="IMG_4078.PNG.jpg">
+                    <img class="gallery-item__image" src="IMG_4078.PNG.jpg" alt="Campus Space" loading="lazy">
+                    <div class="gallery-item__zoom">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                    <div class="gallery-item__overlay">
+                        <p class="gallery-item__caption">Campus Space</p>
+                        <p class="gallery-item__category">Campus</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item show" data-category="campus" data-image="staff room.jpg">
+                    <img class="gallery-item__image" src="staff room.jpg" alt="Staff Area" loading="lazy">
+                    <div class="gallery-item__zoom">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                    <div class="gallery-item__overlay">
+                        <p class="gallery-item__caption">Staff Area</p>
+                        <p class="gallery-item__category">Campus</p>
                     </div>
                 </div>
 
@@ -981,14 +1018,18 @@
             function updateLightboxContent() {
                 if (visibleItems.length === 0) return;
                 var item = visibleItems[currentIndex];
-                var placeholder = item.querySelector('.gallery-item__placeholder');
+                var img = item.querySelector('.gallery-item__image');
                 var caption = item.querySelector('.gallery-item__caption').textContent;
                 var category = item.querySelector('.gallery-item__category').textContent;
 
-                // Clone the gradient background
-                var bgStyle = window.getComputedStyle(placeholder).background;
-                lightboxImageContainer.style.background = bgStyle;
-                lightboxImageContainer.innerHTML = '<i class="' + placeholder.querySelector('i').className + '" style="font-size:5rem;color:rgba(255,255,255,0.3);"></i>';
+                // Display the actual image in lightbox
+                if (img) {
+                    lightboxImageContainer.innerHTML = '<img src="' + img.src + '" alt="' + img.alt + '" style="width:100%;height:100%;object-fit:contain;">';
+                    lightboxImageContainer.style.background = '#f0f0f0';
+                } else {
+                    lightboxImageContainer.innerHTML = '<i class="fas fa-image" style="font-size:5rem;color:rgba(0,0,0,0.3);"></i>';
+                    lightboxImageContainer.style.background = '#f0f0f0';
+                }
 
                 lightboxCaption.textContent = caption;
                 lightboxCategory.textContent = category;
