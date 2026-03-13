@@ -21,23 +21,21 @@ Options -Indexes
     RewriteCond %{DOCUMENT_ROOT}/$1.webp -f
     RewriteRule ^(.+)\.(jpe?g|png)$ $1.webp [T=image/webp,L]
 
+    # Redirect /index.html to /
+    RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP
+    RewriteRule ^index\.html$ / [R=301,L]
+
     # Remove .html extension from URLs (redirect .html to clean URL)
-    RewriteCond %{REQUEST_URI} \.html$
+    # Exclude 404.html so ErrorDocument keeps the 404 status
+    RewriteCond %{THE_REQUEST} \s/(.+)\.html[\s?]
+    RewriteCond %{REQUEST_URI} !^/404\.html$
     RewriteRule ^(.+)\.html$ /$1 [R=301,L]
 
     # Rewrite clean URLs to .html files (internal rewrite)
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{DOCUMENT_ROOT}/$1.html -f
     RewriteRule ^([a-zA-Z0-9_-]+)/?$ $1.html [L]
-
-    # Remove index.html from URLs
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^(.*)$ index.html [L]
-
-    # Redirect /index.html to /
-    RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP
-    RewriteRule ^index\.html$ / [R=301,L]
 
     # Custom 404
     ErrorDocument 404 /404.html
@@ -110,6 +108,8 @@ Options -Indexes
     Header set X-Frame-Options "SAMEORIGIN"
     Header set X-XSS-Protection "1; mode=block"
     Header set Referrer-Policy "strict-origin-when-cross-origin"
+    Header set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+    Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
 </IfModule>
 
 # ============================================================
