@@ -2066,9 +2066,7 @@ p:last-child {
 
 /* Vision / Mission 2-Column */
 .vision-mission {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
+  display: block;
 }
 
 .vision-mission__card {
@@ -3882,10 +3880,7 @@ p:last-child {
     height: 48px;
   }
 
-  /* Vision Mission */
-  .vision-mission {
-    grid-template-columns: 1fr;
-  }
+  /* Vision Mission - handled by about.html inline styles */
 
   /* Leadership */
   .leadership__grid {
