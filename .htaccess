@@ -21,9 +21,9 @@ Options -Indexes
     RewriteCond %{DOCUMENT_ROOT}/$1.webp -f
     RewriteRule ^(.+)\.(jpe?g|png)$ $1.webp [T=image/webp,L]
 
-    # Redirect /index.html to /
-    RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP
-    RewriteRule ^index\.html$ / [R=301,L]
+    # Redirect /index.html and /index to /
+    RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index(\.html)?[\s?]
+    RewriteRule ^index(\.html)?$ / [R=301,L]
 
     # Remove .html extension from URLs (redirect .html to clean URL)
     # Exclude 404.html so ErrorDocument keeps the 404 status
