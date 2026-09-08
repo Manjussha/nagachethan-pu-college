@@ -31,15 +31,27 @@ Options -Indexes
     RewriteCond %{REQUEST_URI} !^/404\.html$
     RewriteRule ^(.+)\.html$ /$1 [R=301,L]
 
+    # Redirect trailing-slash URLs to clean URLs (avoid duplicate content)
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.+)/$ /$1 [R=301,L]
+
     # Rewrite clean URLs to .html files (internal rewrite)
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{DOCUMENT_ROOT}/$1.html -f
-    RewriteRule ^([a-zA-Z0-9_-]+)/?$ $1.html [L]
+    RewriteRule ^([a-zA-Z0-9_-]+)$ $1.html [L]
 
     # Custom 404
     ErrorDocument 404 /404.html
 </IfModule>
+
+# Noindex component pages (header/footer) and dev files
+<FilesMatch "^(header|footer|model_comparison)(\.html?)?$">
+    Header set X-Robots-Tag "noindex, nofollow"
+</FilesMatch>
+<FilesMatch "^posts\.json$">
+    Header set X-Robots-Tag "noindex, nofollow"
+</FilesMatch>
 
 # ============================================================
 # GZIP Compression
