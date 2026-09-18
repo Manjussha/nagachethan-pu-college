@@ -549,3 +549,24 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 });
+
+/* ---- GA4 lead tracking: calls, WhatsApp, email and enquiry forms ---- */
+(function () {
+    function track(method, detail) {
+        if (typeof window.gtag === 'function') {
+            window.gtag('event', 'generate_lead', { method: method, lead_detail: detail || '' });
+        }
+    }
+    document.addEventListener('click', function (e) {
+        var a = e.target.closest && e.target.closest('a[href]');
+        if (!a) return;
+        var href = a.getAttribute('href') || '';
+        if (href.indexOf('tel:') === 0) track('phone', href.slice(4));
+        else if (/wa\.me|api\.whatsapp\.com/i.test(href)) track('whatsapp', location.pathname);
+        else if (href.indexOf('mailto:') === 0) track('email', href.slice(7));
+    });
+    document.addEventListener('submit', function (e) {
+        var id = e.target && e.target.id;
+        if (id === 'admissionEnquiryForm' || id === 'contactForm') track('form', id);
+    }, true);
+})();
