@@ -1,0 +1,9 @@
+# Image admin: never indexed, never cached, no folder listing.
+# PHP includes live in inc/ which has its own "Deny from all".
+Options -Indexes
+DirectoryIndex index.php
+
+<IfModule mod_headers.c>
+    Header set X-Robots-Tag "noindex, nofollow"
+    Header set Cache-Control "no-store"
+</IfModule>

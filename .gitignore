@@ -27,3 +27,8 @@ _search_console_report.js
 package.json
 package-lock.json
 skills-lock.json
+
+# Image admin: server-side data and client uploads (live on server only)
+.private/
+uploads/*
+!uploads/.htaccess
