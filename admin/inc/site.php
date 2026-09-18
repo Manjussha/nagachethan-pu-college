@@ -136,11 +136,13 @@ function gallery_block(string $html): ?string
 function gallery_render(array $items): string
 {
     $out = "\n";
-    foreach ($items as $it) {
+    foreach (array_values($items) as $n => $it) {
         $cls = 'gallery-item' . (!empty($it['tall']) ? ' gallery-item--tall' : '') . ' show';
         $label = GALLERY_CATEGORIES[$it['category']] ?? 'Campus';
+        // First row is above the fold: load it immediately (better LCP).
+        $loading = $n < 4 ? 'eager' : 'lazy';
         $out .= '                <div class="' . $cls . '" data-category="' . h($it['category']) . '" data-image="' . h($it['src']) . "\">\n"
-            . '                    <img class="gallery-item__image" src="' . h($it['src']) . '" alt="' . h($it['alt']) . '" loading="lazy" width="' . (int)$it['width'] . '" height="' . (int)$it['height'] . "\">\n"
+            . '                    <img class="gallery-item__image" src="' . h($it['src']) . '" alt="' . h($it['alt']) . '" loading="' . $loading . '" width="' . (int)$it['width'] . '" height="' . (int)$it['height'] . "\">\n"
             . "                    <div class=\"gallery-item__zoom\">\n"
             . "                        <i class=\"fas fa-search-plus\"></i>\n"
             . "                    </div>\n"
