@@ -11,6 +11,9 @@ aug2025.txt
 # Service account keys - NEVER commit
 nagachethana-*.json
 
+# Server SSH/deploy details - NEVER commit
+.deploy.env
+
 # Dev/analytics scripts
 _analytics_report.js
 _search_console_report.js
