@@ -132,6 +132,7 @@ label > input, label > select { margin-top: .3rem; font-weight: 400; }
 .card:has(.history) { overflow-x: auto; }
 
 /* ---------- Busy overlay ---------- */
+[hidden], .busy[hidden] { display: none !important; }
 .busy { position: fixed; inset: 0; background: rgba(255,255,255,.85); display: grid; place-items: center; z-index: 50; }
 .busy__box { text-align: center; font-weight: 600; color: var(--green-dark); }
 .spinner {

@@ -184,7 +184,7 @@ $setupMissing = !is_file(AUTH_FILE);
     <meta name="robots" content="noindex, nofollow">
     <title>Image Manager - Nagachethana PU College</title>
     <link rel="icon" href="../favicon-32x32.png">
-    <link rel="stylesheet" href="admin.css?v=1">
+    <link rel="stylesheet" href="admin.css?v=2">
 </head>
 <body>
 <?php if (!is_logged_in()): ?>
@@ -371,6 +371,6 @@ $setupMissing = !is_file(AUTH_FILE);
 
     <div class="busy" hidden><div class="busy__box"><span class="spinner"></span>Uploading &amp; optimising photo&hellip;<br><small>Please keep this page open.</small></div></div>
 <?php endif; ?>
-<script src="admin.js?v=1"></script>
+<script src="admin.js?v=2"></script>
 </body>
 </html>

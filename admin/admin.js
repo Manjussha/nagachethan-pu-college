@@ -5,6 +5,11 @@
         if (busy) busy.hidden = false;
     }
 
+    // Never leave the spinner up when the page is shown again (e.g. Back button)
+    window.addEventListener('pageshow', function () {
+        if (busy) busy.hidden = true;
+    });
+
     // Spinner while a photo uploads
     document.querySelectorAll('form.js-busy').forEach(function (form) {
         form.addEventListener('submit', showBusy);
