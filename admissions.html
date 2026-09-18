@@ -1679,8 +1679,11 @@
     <script>
     var SHEET_URL = 'https://script.google.com/macros/s/AKfycbwn6j_HOy2jaf6wfH3ow6DyXhQBD7mLFMTuGWkPpSaJHJA_IlLN4OiiG2PraVwEO812Ng/exec';
     function sendToSheet(data) {
-        var img = new Image();
-        img.src = SHEET_URL + '?data=' + encodeURIComponent(JSON.stringify(data));
+        // POST body (not the URL) so names/phones never end up in logs or history.
+        // Apps Script reads it as e.parameter.data in doPost.
+        var body = new URLSearchParams({ data: JSON.stringify(data) });
+        if (navigator.sendBeacon && navigator.sendBeacon(SHEET_URL, body)) return;
+        fetch(SHEET_URL, { method: 'POST', body: body, mode: 'no-cors', keepalive: true });
     }
     function bindAdmissionSheet() {
         var form = document.getElementById('admissionEnquiryForm');
